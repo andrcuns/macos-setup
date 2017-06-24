@@ -1,0 +1,44 @@
+---
+
+- name: Installing zsh shell
+  homebrew:
+    name: zsh
+    state: latest
+
+- name: Installing oh-my-zsh
+  shell: sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+  args:
+    creates: ~/.oh-my-zsh
+
+- name: Installing pure theme
+  npm:
+    name: pure-prompt
+    global: yes
+    state: latest
+
+- name: Cloninig custom plugins
+  git:
+    repo: "{{ github }}zsh-users/{{ item }}.git"
+    dest: "{{ omzsh_plugins_dir }}/{{ item }}"
+    accept_hostkey: yes
+  with_items:
+    - zsh-syntax-highlighting
+    - zsh-autosuggestions
+    - zsh-completions
+
+- name: Checking for original .zshrc
+  stat:
+    path: ~/.zshrc
+  register: stat_zshrc
+
+- name: Backing up .zshrc file
+  command: mv ~/.zshrc ~/.zshrc.bak
+  args:
+    creates: ~/.zshrc.bak
+  when: stat_zshrc.stat.islnk is defined and not stat_zshrc.stat.islnk
+
+- name: Setting zsh as default user shell
+  user:
+    name: "{{ user.name }}"
+    shell: /usr/local/bin/zsh
+  become: yes

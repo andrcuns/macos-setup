@@ -1,6 +1,0 @@
----
-
-- name: Install Python packages
-  homebrew:
-    name: python3
-    state: latest
