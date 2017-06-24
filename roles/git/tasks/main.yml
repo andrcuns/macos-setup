@@ -1,0 +1,7 @@
+---
+
+- name: Install diff-so-fancy
+  npm:
+    name: diff-so-fancy
+    global: yes
+    state: latest

@@ -1,0 +1,4 @@
+---
+
+omzsh_custom_dir: "~/.oh-my-zsh/custom"
+omzsh_plugins_dir: "{{ omzsh_custom_dir }}/plugins"

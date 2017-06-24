@@ -1,0 +1,27 @@
+---
+
+- name: Install Node.js
+  homebrew:
+    name: nodejs
+    state: latest
+
+- name: Install latest global npm packages
+  npm:
+    name: "{{ item }}"
+    global: yes
+    state: latest
+  with_items:
+    - nodemon
+    - coffee-script
+    - gulp-cli
+    - grunt
+    - mocha
+    - webpack
+    - bower
+    - eslint
+    - babel-eslint
+    - eslint-plugin-react
+    - react-native-cli
+    - flow-bin
+    - webpack-bundle-size-analyzer
+    - ava

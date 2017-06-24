@@ -1,0 +1,6 @@
+---
+
+- name: Install Java8
+  homebrew_cask:
+    name: java
+    state: present

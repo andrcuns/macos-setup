@@ -1,0 +1,20 @@
+---
+
+- name: Install Atom
+  homebrew_cask:
+    name: atom
+    state: present
+
+- name: Install Atom packages
+  shell: "apm install {{ item }}"
+  with_items:
+    - linter-eslint
+    - sort-lines
+    - atom-terminal
+    - terminal-plus
+    - react
+    - editorconfig
+    - Stylus
+    - git-log
+    - git-control
+  changed_when: false

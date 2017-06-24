@@ -1,0 +1,14 @@
+---
+
+- name: Perform upgrade
+  homebrew:
+    update_homebrew: yes
+    upgrade_all: yes
+
+- name: Symlink itself to ~/.ansiblefiles
+  file:
+    src: "{{ playbook_dir }}"
+    dest: "{{ ansiblefiles_location }}"
+    state: link
+    force: yes
+  when: "playbook_dir != ansiblefiles_location"
