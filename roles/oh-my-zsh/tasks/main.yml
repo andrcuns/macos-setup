@@ -1,0 +1,20 @@
+---
+
+- name: Install oh-my-zsh
+  shell: sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+- name: Install pure theme
+  npm:
+    name: pure-prompt
+    global: yes
+    state: latest
+
+- name: Clone custom plugins
+  git:
+    repo: "{{ github }}zsh-users/{{ item }}.git"
+    dest: "{{ omzsh_plugins_dir }}/{{ item }}"
+    accept_hostkey: yes
+  with_items:
+    - zsh-syntax-highlighting
+    - zsh-autosuggestions
+    - zsh-completions

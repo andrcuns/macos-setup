@@ -1,0 +1,9 @@
+---
+
+- name: Installing maven
+  homebrew:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - maven
+    - maven-completion

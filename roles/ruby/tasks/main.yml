@@ -1,0 +1,6 @@
+---
+
+- name: Install Ruby
+  homebrew:
+    name: ruby
+    state: latest

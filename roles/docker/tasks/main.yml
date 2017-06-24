@@ -1,0 +1,13 @@
+---
+
+- name: Install Docker
+  homebrew:
+    name: docker
+    state: latest
+    install_options: with-experimental
+
+- name: Install Docker-compose
+  homebrew:
+    name: docker-compose
+    state: latest
+    install_options: without-docker-machine
