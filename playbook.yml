@@ -5,20 +5,20 @@
     - { role: common, tags: "common" }
     - { role: git, tags: "git" }
     - { role: browsers, tags: "browsers" }
-    - { role: python, tags: "python" }
     - { role: docker, tags: "docker" }
     - { role: jdk, tags: "jdk" }
     # - { role: nodejs, tags: "nodejs" }
     - { role: ruby, tags: "ruby" }
     - { role: atom, tags: "atom" }
-    - { role: oh-my-zsh, tags: "oh-my-zsh" }
+    - { role: zshell, tags: "zshell" }
     # - { role: sublime, tags: "sublime" }
     - { role: spotify, tags: "spotify" }
     - { role: vim, tags: "vim" }
     - { role: slack, tags: "slack" }
-    - { role: jetbrains-toolbox, tags: "jetbrains-toolbox" }
+    - { role: intellij-idea, tags: "intellij-idea" }
     - { role: rambox, tags: "rambox" }
-    - { role: iTerm2, tags: "iTerm2" }
     - { role: maven, tags: "maven" }
     - { role: tunnelblick, tags: "tunnelblick" }
     - { role: flycut, tags: "flycut" }
+    - { role: stow, tags: "stow" }
+    - { role: iTerm2, tags: "iTerm2" }

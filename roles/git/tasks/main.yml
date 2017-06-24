@@ -1,5 +1,10 @@
 ---
 
+- name: Install latest git
+  homebrew:
+    name: git
+    state: latest
+
 - name: Install diff-so-fancy
   npm:
     name: diff-so-fancy

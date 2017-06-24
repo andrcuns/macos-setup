@@ -1,0 +1,6 @@
+---
+
+- name: Install IntelliJ Idea
+  homebrew_cask:
+    name: intellij-idea-ce
+    state: present

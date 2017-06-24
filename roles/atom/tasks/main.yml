@@ -8,7 +8,10 @@
 - name: Install Atom packages
   shell: "apm install {{ item }}"
   with_items:
+    - linter
     - linter-eslint
+    - linter-pylint
+    - linter-javac
     - sort-lines
     - atom-terminal
     - terminal-plus

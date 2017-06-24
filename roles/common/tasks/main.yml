@@ -5,6 +5,15 @@
     update_homebrew: yes
     upgrade_all: yes
 
+- name: Install common dependencies
+  homebrew:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - npm
+    - go
+    - python3
+
 - name: Symlink itself to ~/.ansiblefiles
   file:
     src: "{{ playbook_dir }}"

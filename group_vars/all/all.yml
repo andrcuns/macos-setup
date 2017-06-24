@@ -2,3 +2,8 @@
 
 ansiblefiles_location: "~/.ansiblefiles"
 github: "https://github.com/"
+dotfiles: ~/.dotfiles
+
+user:
+  name: "{{ lookup('env', 'USER') }}"
+  home: "{{ lookup('env', 'HOME') }}"

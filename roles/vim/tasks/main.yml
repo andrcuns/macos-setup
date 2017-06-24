@@ -1,5 +1,11 @@
 ---
 
+- name: Install vim
+  homebrew:
+    name: vim
+    state: latest
+    install_options: with-override-system-vi
+
 - name: Clone vimrc repo
   git:
     repo: https://github.com/andrcuns/vimrc.git

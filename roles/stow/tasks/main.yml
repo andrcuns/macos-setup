@@ -1,0 +1,10 @@
+---
+
+- name: Install stow
+  homebrew:
+    name: stow
+    state: latest
+
+- name: Symlink configs
+  command: "stow -d {{ dotfiles }} -S {{ item }}"
+  with_lines: "cat {{ dotfiles }}/stow.txt"
