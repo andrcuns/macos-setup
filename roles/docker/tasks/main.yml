@@ -1,13 +1,4 @@
 ---
 
-- name: Install Docker
-  homebrew:
-    name: docker
-    state: latest
-    install_options: with-experimental
-
-- name: Install Docker-compose
-  homebrew:
-    name: docker-compose
-    state: latest
-    install_options: without-docker-machine
+- name: Install Docker for mac
+  include: group_vars/tasks/dmg_install.yml appName=Docker dmgURL=https://download.docker.com/mac/edge/Docker.dmg
