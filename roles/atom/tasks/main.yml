@@ -15,9 +15,10 @@
     - sort-lines
     - atom-terminal
     - terminal-plus
-    - react
     - editorconfig
-    - Stylus
     - git-log
     - git-control
+    - file-icons
+    - minimap
+    - atom-beautify
   changed_when: false
