@@ -3,7 +3,7 @@
 - name: Install Docker for mac
   include: group_vars/tasks/dmg_install.yml appName=Docker dmgURL=https://download.docker.com/mac/edge/Docker.dmg
 
-- name: Install docker machine
+- name: Install docker machine cli completion
   homebrew:
-    name: docker-machine
+    name: docker-machine-completion
     state: latest
