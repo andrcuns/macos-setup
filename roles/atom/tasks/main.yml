@@ -12,6 +12,9 @@
     - linter-eslint
     - linter-pylint
     - linter-javac
+    - autocomplete-python
+    - python-tools
+    - language-docker
     - sort-lines
     - atom-terminal
     - terminal-plus
@@ -22,3 +25,8 @@
     - minimap
     - atom-beautify
   changed_when: false
+
+- name: Install pylint
+  pip:
+    name: pylint
+    state: latest

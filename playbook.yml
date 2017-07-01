@@ -21,4 +21,5 @@
     - { role: tunnelblick, tags: "tunnelblick" }
     - { role: flycut, tags: "flycut" }
     - { role: stow, tags: "stow" }
+    - { role: virtualbox, tags: "virtualbox" }
     - { role: iTerm2, tags: "iTerm2" }

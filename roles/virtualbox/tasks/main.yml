@@ -1,0 +1,9 @@
+---
+
+- name: Install virtualbox and extensions pack
+  homebrew_cask:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - virtualbox
+    - virtualbox-extension-pack
