@@ -10,11 +10,20 @@
   args:
     creates: ~/.oh-my-zsh
 
-- name: Installing pure theme
-  npm:
-    name: pure-prompt
-    global: yes
-    state: latest
+- name: Clone pure theme
+  git:
+    repo: "{{ github }}sindresorhus/pure.git"
+    dest: "{{ omzsh_themes_dir }}/pure"
+    accept_hostkey: yes
+
+- name: Symlink pure theme files
+  file:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    state: link
+  with_items:
+    - { src: '{{ omzsh_themes_dir }}/pure/async.zsh' , dest: '{{ omzsh_custom_dir }}/async.zsh' }
+    - { src: '{{ omzsh_themes_dir }}/pure/pure.zsh' , dest: '{{ omzsh_themes_dir }}/pure.zsh-theme' }
 
 - name: Cloninig custom plugins
   git:
@@ -28,14 +37,19 @@
 
 - name: Checking for original .zshrc
   stat:
-    path: ~/.zshrc
+    path: "{{ user.home }}/.zshrc"
   register: stat_zshrc
 
 - name: Backing up .zshrc file
   command: mv ~/.zshrc ~/.zshrc.bak
   args:
     creates: ~/.zshrc.bak
-  when: stat_zshrc.stat.islnk is defined and not stat_zshrc.stat.islnk
+  when: stat_zshrc.exists
+
+- name: Create .zshrc
+  template:
+    src: .zshrc.j2
+    dest: "{{ user.home }}/.zshrc"
 
 - name: Setting zsh as default user shell
   user:

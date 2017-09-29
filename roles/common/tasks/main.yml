@@ -5,7 +5,7 @@
     update_homebrew: yes
     upgrade_all: yes
 
-- name: Install common dependencies
+- name: Install common tools
   homebrew:
     name: "{{ item }}"
     state: latest
@@ -13,3 +13,15 @@
     - npm
     - go
     - python3
+    - coreutils
+    - findutils
+    - gnupg
+    - grep
+    - openssh
+    - wget
+
+- name: Install gnu-sed
+  homebrew:
+    name: gnu-sed
+    state: latest
+    install_options: with-default-names

@@ -1,0 +1,11 @@
+---
+
+- name: Installing neovim
+  homebrew:
+    name: neovim
+    state: present
+
+- name: Set init.vim
+  template:
+    src: init.vim.j2
+    dest: "{{ user.home/.config/nvim/init.vim }}"

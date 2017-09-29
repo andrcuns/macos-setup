@@ -1,0 +1,6 @@
+---
+
+- name: Install postman
+  homebrew_cask:
+    name: postman
+    state: present

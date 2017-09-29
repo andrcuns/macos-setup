@@ -1,0 +1,17 @@
+---
+
+- name: Installing sdk manager
+  shell: sh -c "$(curl -s "https://get.sdkman.io" | bash)"
+  args:
+    creates: ~/.sdkman
+
+- name: Source sdkman
+  shell: "source {{ user.home }}/.sdkman/bin/sdkman-init.sh"
+
+- name: Install sdks and build tools
+  shell: sdk install {{ item }}
+  with_items:
+    - java
+    - gradle
+    - maven
+    - groovy

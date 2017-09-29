@@ -1,6 +1,6 @@
 ---
 
-- name: Install Java8
+- name: Install skype
   homebrew_cask:
-    name: java
+    name: skype
     state: present

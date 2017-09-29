@@ -1,0 +1,6 @@
+---
+
+- name: Install microsoft office
+  homebrew_cask:
+    name: microsoft-office
+    state: present

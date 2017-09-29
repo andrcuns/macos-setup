@@ -4,22 +4,25 @@
   roles:
     - { role: common, tags: "common" }
     - { role: git, tags: "git" }
+    - { role: zshell, tags: "zshell" }
+    - { role: sdks, tags: "sdks" }
     - { role: browsers, tags: "browsers" }
     - { role: docker, tags: "docker" }
-    - { role: jdk, tags: "jdk" }
     # - { role: nodejs, tags: "nodejs" }
     - { role: ruby, tags: "ruby" }
     - { role: atom, tags: "atom" }
-    - { role: zshell, tags: "zshell" }
     # - { role: sublime, tags: "sublime" }
     - { role: spotify, tags: "spotify" }
-    - { role: vim, tags: "vim" }
+    # - { role: vim, tags: "vim" }
+    - { role: neovim, tags: "neovim" }
     - { role: slack, tags: "slack" }
     - { role: intellij-idea, tags: "intellij-idea" }
     - { role: rambox, tags: "rambox" }
-    - { role: maven, tags: "maven" }
     - { role: tunnelblick, tags: "tunnelblick" }
     - { role: flycut, tags: "flycut" }
     - { role: stow, tags: "stow" }
-    - { role: virtualbox, tags: "virtualbox" }
+    # - { role: virtualbox, tags: "virtualbox" }
     - { role: iTerm2, tags: "iTerm2" }
+    - { role: postman, tags: "postman" }
+    - { role: skype, tags: "skype" }
+    - { role: office, tags: "office" }

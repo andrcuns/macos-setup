@@ -1,0 +1,36 @@
+# If you come from bash you might have to change your $PATH.
+export PATH=$HOME/bin:$PATH
+
+# Path to your oh-my-zsh installation.
+export ZSH={{ user.home }}/.oh-my-zsh
+
+# Set name of the theme to load. Optionally, if you set this to "random"
+# it'll load a random theme each time that oh-my-zsh is loaded.
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+ZSH_THEME="pure"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git adb osx brew colorize cp docker zsh-syntax-highlighting zsh-autosuggestions zsh-completions mvn gradle)
+
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+
+#Preferred editor for local and remote sessions
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='nvim'
+fi
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="{{ user.home }}/.sdkman"
+[[ -s "{{ user.home }}/.sdkman/bin/sdkman-init.sh" ]] && source "{{ user.home }}/.sdkman/bin/sdkman-init.sh"
