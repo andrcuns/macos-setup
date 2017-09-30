@@ -34,6 +34,7 @@
     - zsh-syntax-highlighting
     - zsh-autosuggestions
     - zsh-completions
+    - zsh-history-substring-search
 
 - name: Checking for original .zshrc
   stat:
@@ -55,4 +56,3 @@
   user:
     name: "{{ user.name }}"
     shell: /usr/local/bin/zsh
-  become: yes

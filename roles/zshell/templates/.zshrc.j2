@@ -1,29 +1,56 @@
-# If you come from bash you might have to change your $PATH.
+# =====================================================================================================================
+# General zsh settings
+# =====================================================================================================================
+
+# Disable control flow (ctrl-s / ctrl-q)
+stty stop '' -ixoff -ixon
+
+# Set spelling correction
+setopt correct
+
+# Dont raise errors when regex nomatch fires
+unsetopt nomatch
+
+# =====================================================================================================================
+# Oh my zsh settings
+# =====================================================================================================================
+# Export $PATH.
 export PATH=$HOME/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH={{ user.home }}/.oh-my-zsh
 
-# Set name of the theme to load. Optionally, if you set this to "random"
-# it'll load a random theme each time that oh-my-zsh is loaded.
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+# Theme declaration
 ZSH_THEME="pure"
 
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
+# Disable marking repo as dirty due to untracked files
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
+# Plugin declaration
 plugins=(git adb osx brew colorize cp docker zsh-syntax-highlighting zsh-autosuggestions zsh-completions mvn gradle)
 
+# =====================================================================================================================
+# Sourcing
+# =====================================================================================================================
+# Oh-my-zsh
 source $ZSH/oh-my-zsh.sh
+source $ZSH/custom/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 
+# =====================================================================================================================
+# Plugin bindings
+# =====================================================================================================================
+
+# History substring search plugin binding
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+
+# Autosuggestions + Substring search config
+ZSH_AUTOSUGGEST_CLEAR_WIDGETS=("${(@)ZSH_AUTOSUGGEST_CLEAR_WIDGETS:#(up|down)-line-or-history}")
+ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(history-substring-search-up history-substring-search-down)
+
+# =====================================================================================================================
 # User configuration
-
+# =====================================================================================================================
 #Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
