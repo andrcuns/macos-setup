@@ -14,9 +14,6 @@ unsetopt nomatch
 # =====================================================================================================================
 # Oh my zsh settings
 # =====================================================================================================================
-# Export $PATH.
-export PATH=$HOME/bin:$PATH
-
 # Path to your oh-my-zsh installation.
 export ZSH={{ user.home }}/.oh-my-zsh
 
@@ -49,7 +46,28 @@ ZSH_AUTOSUGGEST_CLEAR_WIDGETS=("${(@)ZSH_AUTOSUGGEST_CLEAR_WIDGETS:#(up|down)-li
 ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(history-substring-search-up history-substring-search-down)
 
 # =====================================================================================================================
-# User configuration
+# Additional aliases
+# =====================================================================================================================
+
+# ------------------------------------------
+# Applications
+# ------------------------------------------
+alias d='docker'
+alias v='nvim'
+alias g='git'
+alias gbd='g push origin --delete $(git_current_branch)'
+alias dockerstopall='docker stop $(docker ps -a -q)'
+alias dockerrmall='docker rm $(docker ps -a -q)'
+
+# ------------------------------------------
+# Other
+# ------------------------------------------
+alias q='exit'
+alias topdu='du -a | sort -nr | head -50'
+alias fsize='du -s'
+
+# =====================================================================================================================
+# Exports
 # =====================================================================================================================
 #Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
@@ -58,16 +76,11 @@ else
   export EDITOR='nvim'
 fi
 
-# =====================================================================================================================
-# Additional aliases
-# =====================================================================================================================
-alias d='docker'
-alias v='nvim'
-alias g='git'
-alias gbd='g push origin --delete $(git_current_branch)'
-alias dockerstopall='docker stop $(docker ps -a -q)'
-alias dockerrmall='docker rm $(docker ps -a -q)'
+# Add bin folder to path
+export PATH=$HOME/bin:$PATH
 
+# Iterm2 shell integrations
+test -e "{{ user.home }}/.iterm2_shell_integration.zsh" && source "{{ user.home }}/.iterm2_shell_integration.zsh"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="{{ user.home }}/.sdkman"
