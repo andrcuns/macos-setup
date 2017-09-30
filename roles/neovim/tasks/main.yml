@@ -5,7 +5,11 @@
     name: neovim
     state: present
 
+- file:
+    path: "{{ user.home }}/.config/nvim"
+    state: directory
+
 - name: Set init.vim
   template:
     src: init.vim.j2
-    dest: "{{ user.home/.config/nvim/init.vim }}"
+    dest: "{{ user.home }}/.config/nvim/init.vim"

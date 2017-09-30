@@ -1,17 +1,28 @@
 ---
 
+- name: Check if sdkman is installed
+  stat:
+    path: "{{ user.home }}/.sdkman"
+  register: sdk
+
 - name: Installing sdk manager
-  shell: sh -c "$(curl -s "https://get.sdkman.io" | bash)"
+  shell: curl -s "https://get.sdkman.io" | bash
   args:
     creates: ~/.sdkman
+  when: not sdk.stat.exists
 
-- name: Source sdkman
-  shell: "source {{ user.home }}/.sdkman/bin/sdkman-init.sh"
+- name: Update sdkman
+  shell: "{{ init_sdkman }} && sdk selfupdate"
+  when: sdk.stat.exists
 
-- name: Install sdks and build tools
-  shell: sdk install {{ item }}
+- name: Install sdks
+  shell: "{{ init_sdkman }} && sdk install {{ item }}"
   with_items:
-    - java
-    - gradle
-    - maven
-    - groovy
+    - "{{ sdks }}"
+  when: not sdk.stat.exists
+
+- name: Update sdks
+  shell: "{{ init_sdkman }} && sdk upgrade {{ item }}"
+  with_items:
+    - "{{ sdks }}"
+  when: sdk.stat.exists

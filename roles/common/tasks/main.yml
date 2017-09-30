@@ -17,7 +17,6 @@
     - findutils
     - gnupg
     - grep
-    - openssh
     - wget
 
 - name: Install gnu-sed

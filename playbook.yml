@@ -22,7 +22,6 @@
     - { role: flycut, tags: "flycut" }
     - { role: stow, tags: "stow" }
     # - { role: virtualbox, tags: "virtualbox" }
-    - { role: iTerm2, tags: "iTerm2" }
     - { role: postman, tags: "postman" }
     - { role: skype, tags: "skype" }
     - { role: office, tags: "office" }

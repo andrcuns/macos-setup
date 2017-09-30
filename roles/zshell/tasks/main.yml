@@ -44,7 +44,7 @@
   command: mv ~/.zshrc ~/.zshrc.bak
   args:
     creates: ~/.zshrc.bak
-  when: stat_zshrc.exists
+  when: stat_zshrc.stat.exists
 
 - name: Create .zshrc
   template:

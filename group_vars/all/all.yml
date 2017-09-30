@@ -1,8 +1,7 @@
 ---
-
-github: "https://github.com/"
-dotfiles: ~/.dotfiles
-
 user:
   name: "{{ lookup('env', 'USER') }}"
   home: "{{ lookup('env', 'HOME') }}"
+
+github: "https://github.com/"
+dotfiles: "{{ user.home }}/.dotfiles"
