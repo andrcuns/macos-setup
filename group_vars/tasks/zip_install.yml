@@ -14,19 +14,13 @@
 - name: Download app
   get_url:
     url: "{{ downloadURL }}"
-    dest: "./tmp/{{ appName }}.dmg"
+    dest: "./tmp/{{ appName }}.zip"
   when: not app_exists.stat.exists
 
-- name: Mount image
-  command: hdiutil attach ./tmp/{{ appName }}.dmg -nobrowse -mountpoint ./tmp/{{ appName }}
-  when: not app_exists.stat.exists
-
-- name: Copy app
-  shell: cp -aR ./tmp/{{ appName }}/*.app /Applications/{{ appName }}.app
-  when: not app_exists.stat.exists
-
-- name: Unmount image
-  command: hdiutil detach ./tmp/{{ appName }}/
+- name: Extract application
+  unarchive:
+    src: "./tmp/{{ appName }}.zip"
+    dest: /Applications/{{ appName }}.app
   when: not app_exists.stat.exists
 
 - name: Delete tmp dir

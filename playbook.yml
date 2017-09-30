@@ -25,3 +25,4 @@
     - { role: postman, tags: "postman" }
     - { role: skype, tags: "skype" }
     - { role: office, tags: "office" }
+    - { role: iterm2, tags: "iterm2" }

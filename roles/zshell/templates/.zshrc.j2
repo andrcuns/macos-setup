@@ -58,6 +58,17 @@ else
   export EDITOR='nvim'
 fi
 
+# =====================================================================================================================
+# Additional aliases
+# =====================================================================================================================
+alias d='docker'
+alias v='nvim'
+alias g='git'
+alias gbd='g push origin --delete $(git_current_branch)'
+alias dockerstopall='docker stop $(docker ps -a -q)'
+alias dockerrmall='docker rm $(docker ps -a -q)'
+
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="{{ user.home }}/.sdkman"
 [[ -s "{{ user.home }}/.sdkman/bin/sdkman-init.sh" ]] && source "{{ user.home }}/.sdkman/bin/sdkman-init.sh"

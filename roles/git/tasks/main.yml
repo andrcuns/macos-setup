@@ -6,7 +6,6 @@
     state: latest
 
 - name: Install diff-so-fancy
-  npm:
+  homebrew:
     name: diff-so-fancy
-    global: yes
     state: latest
