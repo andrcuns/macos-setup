@@ -65,6 +65,8 @@ Plug 'honza/dockerfile.vim'
 
 " Nerdtree file browser
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeFind', 'NERDTreeToggle'] }
+" Nerdtree git status
+Plug 'Xuyuanp/nerdtree-git-plugin'
 " Lightline (simple status line)
 Plug 'itchyny/lightline.vim'
 " Buffers tabline
@@ -160,6 +162,33 @@ endif
 if has('termguicolors')
   set termguicolors " Turn on true colors support
 endif
+
+" -----------------------------------------------------
+" 2.8 NERDTree settings
+" -----------------------------------------------------
+"NERDTree UI improvements
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+
+"Start NERDTree if no files or directory selected
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTreeToggle' argv()[0] | wincmd p | ene | endif
+
+"Close vim if only NERDTree is open
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree")) | q | endif
+
+"Ctrl+n NERDTree mapping
+nnoremap <F4> :NERDTreeToggle<CR>
+
+"NERDTree on the left
+let g:NERDTreeWinPos = "left"
+
+" -----------------------------------------------------
+" 2.9 Navigation
+" -----------------------------------------------------
+"Navigation between windows
+nmap <silent> <F2> :wincmd h<CR>
+nmap <silent> <F3> :wincmd l<CR>
 
 " ======================================================================================================================
 " 3.0 Color and highlighting settings
