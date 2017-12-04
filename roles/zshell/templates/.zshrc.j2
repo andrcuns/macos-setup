@@ -56,6 +56,7 @@ alias d='docker'
 alias v='nvim'
 alias g='git'
 alias gbd='g push origin --delete $(git_current_branch)'
+alias gcleanup=$'git fetch -p && git branch -v | grep \'gone\' | awk \'{print $1}\' | xargs -n 1 git branch -D'
 alias dockerstopall='docker stop $(docker ps -a -q)'
 alias dockerrmall='docker rm $(docker ps -a -q)'
 
@@ -69,7 +70,7 @@ alias fsize='du -s'
 # =====================================================================================================================
 # Exports
 # =====================================================================================================================
-#Preferred editor for local and remote sessions
+# Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
@@ -79,9 +80,12 @@ fi
 # Add bin folder to path
 export PATH=$HOME/bin:$PATH
 
-# Iterm2 shell integrations
-test -e "{{ user.home }}/.iterm2_shell_integration.zsh" && source "{{ user.home }}/.iterm2_shell_integration.zsh"
+# Direnv integration¬
+# eval "$(direnv hook zsh)"
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+# Iterm2 shell integrations
+# test -e "{{ user.home }}/.iterm2_shell_integration.zsh" && source "{{ user.home }}/.iterm2_shell_integration.zsh"
+
+# THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="{{ user.home }}/.sdkman"
 [[ -s "{{ user.home }}/.sdkman/bin/sdkman-init.sh" ]] && source "{{ user.home }}/.sdkman/bin/sdkman-init.sh"
