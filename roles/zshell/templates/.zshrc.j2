@@ -24,7 +24,7 @@ ZSH_THEME="pure"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Plugin declaration
-plugins=(git adb osx brew colorize cp docker zsh-syntax-highlighting zsh-autosuggestions zsh-completions mvn gradle)
+plugins=(git adb osx brew colorize cp docker zsh-syntax-highlighting zsh-autosuggestions zsh-completions mvn gradle pass)
 
 # =====================================================================================================================
 # Sourcing
@@ -59,13 +59,15 @@ alias gbd='g push origin --delete $(git_current_branch)'
 alias gcleanup=$'git fetch -p && git branch -v | grep \'gone\' | awk \'{print $1}\' | xargs -n 1 git branch -D'
 alias dockerstopall='docker stop $(docker ps -a -q)'
 alias dockerrmall='docker rm $(docker ps -a -q)'
+alias cat='bat'
+alias ping='prettyping --nolegend'
+alias help='tldr'
 
 # ------------------------------------------
 # Other
 # ------------------------------------------
 alias q='exit'
-alias topdu='du -a | sort -nr | head -50'
-alias fsize='du -s'
+alias fsize='ncdu --color dark -x --exclude .git --exclude node_modules'
 
 # =====================================================================================================================
 # Exports
@@ -81,7 +83,7 @@ fi
 export PATH=$HOME/bin:$PATH
 
 # Direnv integration¬
-# eval "$(direnv hook zsh)"
+eval "$(direnv hook zsh)"
 
 # Iterm2 shell integrations
 # test -e "{{ user.home }}/.iterm2_shell_integration.zsh" && source "{{ user.home }}/.iterm2_shell_integration.zsh"

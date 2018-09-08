@@ -1,4 +1,0 @@
----
-
-sublime_config_dir: "~/Library/Application Support/Sublime Text 3"
-sublime_settings_dir: "{{ sublime_config_dir }}/Packages/User"

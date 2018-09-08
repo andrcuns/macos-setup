@@ -8,12 +8,10 @@
     - { role: sdks, tags: "sdks" }
     - { role: browsers, tags: "browsers" }
     - { role: docker, tags: "docker" }
-    # - { role: nodejs, tags: "nodejs" }
+    - { role: nodejs, tags: "nodejs" }
     - { role: ruby, tags: "ruby" }
     - { role: atom, tags: "atom" }
-    # - { role: sublime, tags: "sublime" }
     - { role: spotify, tags: "spotify" }
-    # - { role: vim, tags: "vim" }
     - { role: neovim, tags: "neovim" }
     - { role: slack, tags: "slack" }
     - { role: intellij-idea, tags: "intellij-idea" }

@@ -11,17 +11,5 @@
     global: yes
     state: latest
   with_items:
-    - nodemon
-    - coffee-script
-    - gulp-cli
-    - grunt
-    - mocha
-    - webpack
-    - bower
+    - tslint
     - eslint
-    - babel-eslint
-    - eslint-plugin-react
-    - react-native-cli
-    - flow-bin
-    - webpack-bundle-size-analyzer
-    - ava
