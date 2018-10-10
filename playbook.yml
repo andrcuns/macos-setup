@@ -24,3 +24,4 @@
     - { role: skype, tags: "skype" }
     - { role: office, tags: "office" }
     - { role: iterm2, tags: "iterm2" }
+    - { role: vscode, tags: "vscode" }

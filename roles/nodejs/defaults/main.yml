@@ -1,0 +1,2 @@
+nvm_home: "{{ user.home }}/.nvm"
+init_nvm: ". {{ nvm_home }}/nvm.sh"

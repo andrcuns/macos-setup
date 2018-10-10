@@ -1,0 +1,28 @@
+---
+
+- name: Install Visual Studio Code
+  homebrew_cask:
+    name: visual-studio-code
+    state: present
+
+- name: Install extensions
+  shell: "code --install-extension {{ item }}"
+  with_items:
+    - alexkrechik.cucumberautocomplete
+    - codezombiech.gitignore
+    - dbaeumer.vscode-eslint
+    - eamodio.gitlens
+    - eg2.tslint
+    - k--kato.intellij-idea-keybindings
+    - mike-co.import-sorter
+    - PeterJausovec.vscode-docker
+    - plievone.vscode-template-literal-editor
+    - redhat.vscode-yaml
+    - robertohuertasm.vscode-icons
+    - samverschueren.final-newline
+    - ms-vscode.Theme-TomorrowKit
+    - vscoss.vscode-ansible
+    - wholroyd.jinja
+    - trinm1709.dracula-theme-from-intellij
+  register: result
+  changed_when: "'is already installed' not in result.stdout"
