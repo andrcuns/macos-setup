@@ -1,6 +1,6 @@
 ---
 
-- name: Check if app exists
+- name: Check if {{ appName }} exists
   stat:
     path: /Applications/{{ appName }}.app
   register: app_exists
@@ -11,7 +11,7 @@
     state: directory
   when: not app_exists.stat.exists
 
-- name: Download app
+- name: Download {{ appName }}
   get_url:
     url: "{{ downloadURL }}"
     dest: "./tmp/{{ appName }}.dmg"
@@ -21,7 +21,7 @@
   command: hdiutil attach ./tmp/{{ appName }}.dmg -nobrowse -mountpoint ./tmp/{{ appName }}
   when: not app_exists.stat.exists
 
-- name: Copy app
+- name: Copy {{ appName }}
   shell: cp -aR ./tmp/{{ appName }}/*.app /Applications/{{ appName }}.app
   when: not app_exists.stat.exists
 

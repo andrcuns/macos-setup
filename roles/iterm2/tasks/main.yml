@@ -1,7 +1,10 @@
 ---
 
 - name: Install iterm2
-  import_tasks: group_vars/tasks/zip_install.yml appName=iTerm downloadURL=https://iterm2.com/downloads/beta/iTerm2-3_2_1beta3.zip
+  import_tasks: group_vars/tasks/zip_install.yml 
+  vars:
+    appName: iTerm 
+    downloadURL: https://iterm2.com/downloads/beta/iTerm2-3_2_5beta1.zip
 
 - name: Clone iterm themes
   git:
