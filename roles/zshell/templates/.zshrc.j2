@@ -12,6 +12,34 @@ setopt correct
 unsetopt nomatch
 
 # =====================================================================================================================
+# Exports
+# =====================================================================================================================
+# Preferred editor for local and remote sessions
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='nvim'
+fi
+
+# Add bin folder to path
+export PATH=$HOME/bin:$PATH
+
+# Direnv integration¬
+eval "$(direnv hook zsh)"
+
+# Custom zsh-nvm options
+export NVM_LAZY_LOAD=true
+
+# Iterm2 shell integrations
+# test -e "{{ user.home }}/.iterm2_shell_integration.zsh" && source "{{ user.home }}/.iterm2_shell_integration.zsh"
+
+# Base16 Shell
+BASE16_SHELL="$HOME/.config/base16-shell/"
+[ -n "$PS1" ] && \
+    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+        eval "$("$BASE16_SHELL/profile_helper.sh")"
+
+# =====================================================================================================================
 # Oh my zsh settings
 # =====================================================================================================================
 # Path to your oh-my-zsh installation.
@@ -70,24 +98,8 @@ alias q='exit'
 alias fsize='ncdu --color dark -x --exclude .git --exclude node_modules'
 
 # =====================================================================================================================
-# Exports
+# SDKMAN
 # =====================================================================================================================
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='nvim'
-fi
-
-# Add bin folder to path
-export PATH=$HOME/bin:$PATH
-
-# Direnv integration¬
-eval "$(direnv hook zsh)"
-
-# Iterm2 shell integrations
-# test -e "{{ user.home }}/.iterm2_shell_integration.zsh" && source "{{ user.home }}/.iterm2_shell_integration.zsh"
-
 # THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="{{ user.home }}/.sdkman"
 [[ -s "{{ user.home }}/.sdkman/bin/sdkman-init.sh" ]] && source "{{ user.home }}/.sdkman/bin/sdkman-init.sh"
