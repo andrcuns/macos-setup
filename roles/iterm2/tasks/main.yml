@@ -1,13 +1,6 @@
 ---
 
 - name: Install iterm2
-  import_tasks: group_vars/tasks/zip_install.yml 
-  vars:
-    appName: iTerm 
-    downloadURL: https://iterm2.com/downloads/beta/iTerm2-3_2_5beta1.zip
-
-- name: Clone iterm themes
-  git:
-    repo: "{{ github }}chriskempson/base16-iterm2.git"
-    dest: "~/.base16-iterm2"
-    accept_hostkey: yes
+  homebrew_cask:
+    name: iterm2
+    state: present

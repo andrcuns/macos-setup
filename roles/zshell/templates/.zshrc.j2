@@ -22,7 +22,7 @@ else
 fi
 
 # Add bin folder to path
-export PATH=$HOME/bin:$PATH
+export PATH=$PATH:$HOME/bin
 
 # Direnv integration¬
 eval "$(direnv hook zsh)"
@@ -31,7 +31,7 @@ eval "$(direnv hook zsh)"
 export NVM_LAZY_LOAD=true
 
 # Iterm2 shell integrations
-# test -e "{{ user.home }}/.iterm2_shell_integration.zsh" && source "{{ user.home }}/.iterm2_shell_integration.zsh"
+# test -e "$HOME/.iterm2_shell_integration.zsh" && source "$HOME/.iterm2_shell_integration.zsh"
 
 # Base16 Shell
 BASE16_SHELL="$HOME/.config/base16-shell/"
@@ -43,7 +43,7 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
 # Oh my zsh settings
 # =====================================================================================================================
 # Path to your oh-my-zsh installation.
-export ZSH={{ user.home }}/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Theme declaration
 ZSH_THEME="pure"
@@ -52,7 +52,7 @@ ZSH_THEME="pure"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Plugin declaration
-plugins=(git adb osx brew colorize cp docker zsh-syntax-highlighting zsh-autosuggestions zsh-completions mvn gradle pass)
+plugins=(git adb osx brew colorize cp docker zsh-syntax-highlighting zsh-autosuggestions zsh-completions gradle pass zsh-nvm yarn rvm gem)
 
 # =====================================================================================================================
 # Sourcing
@@ -80,22 +80,21 @@ ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(history-substring-search-up history-substring-se
 # ------------------------------------------
 # Applications
 # ------------------------------------------
-alias d='docker'
-alias v='nvim'
-alias g='git'
-alias gbd='g push origin --delete $(git_current_branch)'
+alias vim='nvim'
+alias gbd='git push origin --delete $(git_current_branch)'
 alias gcleanup=$'git fetch -p && git branch -v | grep \'gone\' | awk \'{print $1}\' | xargs -n 1 git branch -D'
 alias dockerstopall='docker stop $(docker ps -a -q)'
 alias dockerrmall='docker rm $(docker ps -a -q)'
 alias cat='bat'
 alias ping='prettyping --nolegend'
 alias help='tldr'
-
-# ------------------------------------------
-# Other
-# ------------------------------------------
 alias q='exit'
 alias fsize='ncdu --color dark -x --exclude .git --exclude node_modules'
+
+# =====================================================================================================================
+# RVM
+# =====================================================================================================================
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 # =====================================================================================================================
 # SDKMAN
