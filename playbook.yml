@@ -14,14 +14,14 @@
     - { role: spotify, tags: "spotify" }
     - { role: neovim, tags: "neovim" }
     - { role: slack, tags: "slack" }
-    - { role: intellij-idea, tags: "intellij-idea" }
+    - { role: jetbrains-toolbox, tags: "jetbrains-toolbox" }
     - { role: rambox, tags: "rambox" }
-    - { role: tunnelblick, tags: "tunnelblick" }
+    - { role: vpn, tags: "vpn" }
     - { role: flycut, tags: "flycut" }
     - { role: stow, tags: "stow" }
     # - { role: virtualbox, tags: "virtualbox" }
     - { role: postman, tags: "postman" }
-    - { role: skype, tags: "skype" }
-    - { role: office, tags: "office" }
+    # - { role: skype, tags: "skype" }
+    # - { role: office, tags: "office" }
     - { role: iterm2, tags: "iterm2" }
     - { role: vscode, tags: "vscode" }

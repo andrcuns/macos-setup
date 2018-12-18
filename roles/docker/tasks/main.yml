@@ -1,12 +1,6 @@
 ---
 
-- name: Install Docker for mac
-  import_tasks: group_vars/tasks/dmg_install.yml 
-  vars:
-    appName: Docker 
-    downloadURL: https://download.docker.com/mac/stable/Docker.dmg
-
-- name: Install docker machine cli completion
-  homebrew:
-    name: docker-machine-completion
-    state: latest
+- name: Install docker
+  homebrew_cask:
+    name: docker
+    state: present

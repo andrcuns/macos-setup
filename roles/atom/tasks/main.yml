@@ -8,25 +8,9 @@
 - name: Install Atom packages
   shell: "apm install {{ item }}"
   with_items:
-    - linter
-    - linter-eslint
-    - linter-pylint
-    - linter-javac
-    - autocomplete-python
-    - python-tools
     - language-docker
     - sort-lines
-    - atom-terminal
-    - terminal-plus
-    - editorconfig
-    - git-log
-    - git-control
     - file-icons
     - minimap
     - atom-beautify
   changed_when: false
-
-- name: Install pylint
-  pip:
-    name: pylint
-    state: latest

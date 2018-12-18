@@ -7,24 +7,23 @@
 
 - name: Install common tools
   homebrew:
-    name: "{{ item }}"
+    name:
+      - npm
+      - yarn
+      - go
+      - python3
+      - coreutils
+      - findutils
+      - gnupg
+      - grep
+      - wget
+      - bat
+      - prettyping
+      - ncdu
+      - tldr
+      - direnv
+      - pass
     state: latest
-  with_items:
-    - npm
-    - yarn
-    - go
-    - python3
-    - coreutils
-    - findutils
-    - gnupg
-    - grep
-    - wget
-    - bat
-    - prettyping
-    - ncdu
-    - tldr
-    - direnv
-    - pass
 
 - name: Install gnu-sed
   homebrew:

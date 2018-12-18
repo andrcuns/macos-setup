@@ -21,8 +21,8 @@ else
   export EDITOR='nvim'
 fi
 
-# Add bin folder to path
-export PATH=$PATH:$HOME/bin
+# Add bin and ruby to path
+export PATH=$PATH:$HOME/bin:$HOME/.rvm/bin
 
 # Direnv integration¬
 eval "$(direnv hook zsh)"
@@ -76,10 +76,6 @@ ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(history-substring-search-up history-substring-se
 # =====================================================================================================================
 # Additional aliases
 # =====================================================================================================================
-
-# ------------------------------------------
-# Applications
-# ------------------------------------------
 alias vim='nvim'
 alias gbd='git push origin --delete $(git_current_branch)'
 alias gcleanup=$'git fetch -p && git branch -v | grep \'gone\' | awk \'{print $1}\' | xargs -n 1 git branch -D'

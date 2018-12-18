@@ -1,0 +1,11 @@
+---
+
+# - name: Installing tunnelblick
+#   homebrew_cask:
+#     name: tunnelblick
+#     state: present
+
+- name: Installing viscosity
+  homebrew_cask:
+    name: viscosity
+    state: present

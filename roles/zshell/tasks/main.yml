@@ -64,8 +64,3 @@
   template:
     src: .zshrc.j2
     dest: "{{ user.home }}/.zshrc"
-
-- name: Setting zsh as default user shell
-  user:
-    name: "{{ user.name }}"
-    shell: /usr/local/bin/zsh

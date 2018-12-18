@@ -1,6 +1,0 @@
----
-
-- name: Installing tunnelblick
-  homebrew_cask:
-    name: tunnelblick
-    state: present
