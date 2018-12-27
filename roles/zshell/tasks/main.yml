@@ -5,10 +5,16 @@
     name: zsh
     state: latest
 
-- name: Installing oh-my-zsh
-  shell: sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-  args:
-    creates: ~/.oh-my-zsh
+- name: Clone oh-my-zsh
+  git:
+    repo: "{{ github }}robbyrussell/oh-my-zsh.git"
+    dest: "{{ omzsh_dir }}"
+    accept_hostkey: yes
+
+- name: Install oh-my-zsh
+  shell: "{{ omzsh_dir }}/tools/install.sh"
+  register: result
+  changed_when: "'You already have Oh My Zsh installed' not in result.stdout"
 
 - name: Clone pure theme
   git:
@@ -27,14 +33,11 @@
 
 - name: Cloninig custom plugins
   git:
-    repo: "{{ github }}zsh-users/{{ item }}.git"
-    dest: "{{ omzsh_plugins_dir }}/{{ item }}"
+    repo: "{{ github }}{{ item.value }}/{{ item.key }}.git"
+    dest: "{{ omzsh_plugins_dir }}/{{ item.key }}"
     accept_hostkey: yes
-  with_items:
-    - zsh-syntax-highlighting
-    - zsh-autosuggestions
-    - zsh-completions
-    - zsh-history-substring-search
+  with_dict:
+    "{{ omzsh_plugins }}"
 
 - name: Download shell integration for iterm2
   shell: |

@@ -21,11 +21,14 @@ else
   export EDITOR='nvim'
 fi
 
-# Add bin and ruby to path
-export PATH=$PATH:$HOME/bin:$HOME/.rvm/bin
+# Add bin to path
+export PATH=$PATH:$HOME/bin
 
 # Direnv integration¬
 eval "$(direnv hook zsh)"
+
+# Rbenv integration
+eval "$(rbenv init -)"
 
 # Custom zsh-nvm options
 export NVM_LAZY_LOAD=true
@@ -86,11 +89,6 @@ alias ping='prettyping --nolegend'
 alias help='tldr'
 alias q='exit'
 alias fsize='ncdu --color dark -x --exclude .git --exclude node_modules'
-
-# =====================================================================================================================
-# RVM
-# =====================================================================================================================
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 # =====================================================================================================================
 # SDKMAN

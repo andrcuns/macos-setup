@@ -1,4 +1,2 @@
-rvm_home: "{{ user.home }}/.rvm"
-init_rvm: "source {{ rvm_home }}/scripts/rvm"
-
-ruby_version: "2.5.1"
+rbenv_home: "{{ user.home }}/.rbenv"
+ruby_version: "2.6.0"

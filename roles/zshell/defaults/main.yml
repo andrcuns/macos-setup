@@ -1,5 +1,14 @@
 ---
 
-omzsh_custom_dir: "~/.oh-my-zsh/custom"
+omzsh_dir: "{{ user.home }}/.oh-my-zsh"
+omzsh_custom_dir: "{{ omzsh_dir }}/custom"
 omzsh_plugins_dir: "{{ omzsh_custom_dir }}/plugins"
 omzsh_themes_dir: "{{ omzsh_custom_dir}}/themes"
+
+omzsh_plugins: {
+  zsh-syntax-highlighting: zsh-users,
+  zsh-autosuggestions: zsh-users,
+  zsh-completions: zsh-users,
+  zsh-history-substring-search: zsh-users,
+  zsh-nvm: lukechilds
+}
