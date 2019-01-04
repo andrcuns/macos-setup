@@ -7,23 +7,10 @@
     accept_hostkey: yes
   ignore_errors: yes
 
-- name: Set nvm to latest version
-  shell: "git checkout `git describe --abbrev=0 --tags --match \"v[0-9]*\" $(git rev-list --tags --max-count=1)`"
-  args:
-    chdir: "{{ nvm_home }}"
-
 - name: Install latest node version
   shell: "{{ init_nvm }} && nvm install node"
   register: nvm_result
   changed_when: "'is already installed' not in nvm_result.stderr"
 
 - name: Install latest global npm packages
-  npm:
-    name: "{{ item }}"
-    global: yes
-    state: latest
-  with_items:
-    - nodemon
-    - tslint
-    - eslint
-    - yarn
+  shell: "{{ init_nvm }} && npm install -g nodemon tslint eslint yarn"

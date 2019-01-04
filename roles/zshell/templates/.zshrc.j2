@@ -27,9 +27,6 @@ export PATH=$PATH:$HOME/bin
 # Direnv integration¬
 eval "$(direnv hook zsh)"
 
-# Rbenv integration
-eval "$(rbenv init -)"
-
 # Custom zsh-nvm options
 export NVM_LAZY_LOAD=true
 
@@ -55,7 +52,7 @@ ZSH_THEME="pure"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Plugin declaration
-plugins=(git adb osx brew colorize cp docker zsh-syntax-highlighting zsh-autosuggestions zsh-completions gradle pass zsh-nvm yarn rvm gem)
+plugins=(git adb osx brew colorize cp docker zsh-syntax-highlighting zsh-autosuggestions zsh-completions gradle zsh-nvm npm yarn gem rbenv)
 
 # =====================================================================================================================
 # Sourcing
@@ -89,6 +86,14 @@ alias ping='prettyping --nolegend'
 alias help='tldr'
 alias q='exit'
 alias fsize='ncdu --color dark -x --exclude .git --exclude node_modules'
+alias lg='lazygit'
+alias grep='ggrep'
+alias t='todolist'
+
+# Update software
+alias update='brew update && brew upgrade'
+alias npmupdate='npm update -g'
+alias gemupdate='gem update'
 
 # =====================================================================================================================
 # SDKMAN

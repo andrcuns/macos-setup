@@ -9,3 +9,12 @@
   homebrew:
     name: diff-so-fancy
     state: latest
+
+- name: Tap lazygit
+  homebrew_tap:
+    name: jesseduffield/lazygit
+
+- name: Install lazygit
+  homebrew:
+    name: lazygit
+    state: latest

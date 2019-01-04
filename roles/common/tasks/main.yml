@@ -8,9 +8,6 @@
 - name: Install common tools
   homebrew:
     name:
-      - npm
-      - yarn
-      - go
       - python3
       - coreutils
       - findutils
@@ -22,7 +19,7 @@
       - ncdu
       - tldr
       - direnv
-      - pass
+      - todolist
     state: latest
 
 - name: Install gnu-sed
