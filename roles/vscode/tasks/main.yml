@@ -9,23 +9,31 @@
   shell: "code --install-extension {{ item }}"
   with_items:
     - alexkrechik.cucumberautocomplete
+    - bung87.vscode-gemfile
+    - castwide.solargraph
     - codezombiech.gitignore
     - DavidAnson.vscode-markdownlint
     - dbaeumer.vscode-eslint
     - eamodio.gitlens
     - eg2.tslint
+    - fatihacet.gitlab-workflow
     - formulahendry.code-runner
+    - gencer.html-slim-scss-css-class-completion
+    - groksrc.ruby
     - k--kato.intellij-idea-keybindings
+    - kaiwood.endwise
     - mike-co.import-sorter
+    - ms-vscode.Theme-TomorrowKit
+    - pavlitsky.yard
     - PeterJausovec.vscode-docker
     - plievone.vscode-template-literal-editor
     - rebornix.ruby
-    - castwide.solargraph
     - redhat.vscode-yaml
     - robertohuertasm.vscode-icons
     - samverschueren.final-newline
+    - Shan.code-settings-sync
+    - sianglim.slim
     - vscoss.vscode-ansible
     - wholroyd.jinja
-    - trinm1709.dracula-theme-from-intellij
   register: result
   changed_when: "'is already installed' not in result.stdout"
