@@ -2,25 +2,34 @@
 
 - hosts: localhost
   roles:
+    # General
     - { role: common, tags: "common" }
     - { role: git, tags: "git" }
     - { role: zshell, tags: "zshell" }
-    - { role: sdks, tags: "sdks" }
-    - { role: browsers, tags: "browsers" }
     - { role: docker, tags: "docker" }
-    - { role: nodejs, tags: "nodejs" }
+    
+    # Programming languages
+    - { role: sdks, tags: "sdks" }
+    - { role: node, tags: "node" }
     - { role: ruby, tags: "ruby" }
+
+    # Editors
     - { role: atom, tags: "atom" }
-    - { role: spotify, tags: "spotify" }
     - { role: neovim, tags: "neovim" }
-    - { role: slack, tags: "slack" }
     - { role: jetbrains-toolbox, tags: "jetbrains-toolbox" }
+    - { role: vscode, tags: "vscode" }
+
+    # Desktop
+    - { role: browsers, tags: "browsers" }
+    - { role: spotify, tags: "spotify" }
+    - { role: slack, tags: "slack" }
     - { role: rambox, tags: "rambox" }
     - { role: vpn, tags: "vpn" }
     - { role: flycut, tags: "flycut" }
-    - { role: stow, tags: "stow" }
     - { role: postman, tags: "postman" }
     - { role: iterm2, tags: "iterm2" }
-    - { role: vscode, tags: "vscode" }
     - { role: pass, tags: "pass" }
     # - { role: virtualbox, tags: "virtualbox" }
+    
+    # Dotfiles
+    - { role: stow, tags: "stow" }

@@ -13,4 +13,11 @@
   changed_when: "'is already installed' not in nvm_result.stderr"
 
 - name: Install latest global npm packages
-  shell: "{{ init_nvm }} && npm install -g nodemon tslint eslint yarn"
+  shell: >
+    {{ init_nvm }} &&
+    npm install -g
+    nodemon
+    tslint
+    typescript
+    eslint
+    yarn
