@@ -51,8 +51,20 @@ ZSH_THEME="pure"
 # Disable marking repo as dirty due to untracked files
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-# Plugin declaration
-plugins=(git adb osx brew colorize cp docker zsh-syntax-highlighting zsh-autosuggestions zsh-completions gradle zsh-nvm npm yarn gem rbenv)
+# =====================================================================================================================
+# Plugins
+# =====================================================================================================================
+# OSX 
+plugins=(brew)
+
+# TERMINAL
+plugins+=(zsh-syntax-highlighting zsh-autosuggestions zsh-completions)
+
+# VM
+plugins+=(docker kubectl kops aws)
+
+# DEV
+plugins+=(git gradle zsh-nvm npm yarn gem rbenv)
 
 # =====================================================================================================================
 # Sourcing
@@ -64,7 +76,6 @@ source $ZSH/custom/plugins/zsh-history-substring-search/zsh-history-substring-se
 # =====================================================================================================================
 # Plugin bindings
 # =====================================================================================================================
-
 # History substring search plugin binding
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down

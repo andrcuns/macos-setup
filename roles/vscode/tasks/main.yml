@@ -10,11 +10,13 @@
   with_items:
     - alexkrechik.cucumberautocomplete
     - bung87.vscode-gemfile
+    - bungcip.better-toml
     - castwide.solargraph
     - codezombiech.gitignore
     - DavidAnson.vscode-markdownlint
     - dbaeumer.vscode-eslint
     - eamodio.gitlens
+    - EditorConfig.EditorConfig
     - eg2.tslint
     - fatihacet.gitlab-workflow
     - formulahendry.code-runner
@@ -22,6 +24,7 @@
     - groksrc.ruby
     - k--kato.intellij-idea-keybindings
     - kaiwood.endwise
+    - kumar-harsh.graphql-for-vscode
     - mike-co.import-sorter
     - ms-vscode.Theme-TomorrowKit
     - pavlitsky.yard
