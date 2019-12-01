@@ -29,7 +29,6 @@
     - { role: postman, tags: "postman" }
     - { role: iterm2, tags: "iterm2" }
     - { role: pass, tags: "pass" }
-    # - { role: virtualbox, tags: "virtualbox" }
     
     # Dotfiles
     - { role: stow, tags: "stow" }

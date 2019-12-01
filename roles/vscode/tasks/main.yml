@@ -5,38 +5,7 @@
     name: visual-studio-code
     state: present
 
-- name: Install extensions
-  shell: "code --install-extension {{ item }}"
-  with_items:
-    - alexkrechik.cucumberautocomplete
-    - bung87.vscode-gemfile
-    - bungcip.better-toml
-    - castwide.solargraph
-    - codezombiech.gitignore
-    - DavidAnson.vscode-markdownlint
-    - dbaeumer.vscode-eslint
-    - eamodio.gitlens
-    - EditorConfig.EditorConfig
-    - eg2.tslint
-    - fatihacet.gitlab-workflow
-    - formulahendry.code-runner
-    - gencer.html-slim-scss-css-class-completion
-    - groksrc.ruby
-    - k--kato.intellij-idea-keybindings
-    - kaiwood.endwise
-    - kumar-harsh.graphql-for-vscode
-    - mike-co.import-sorter
-    - ms-vscode.Theme-TomorrowKit
-    - pavlitsky.yard
-    - PeterJausovec.vscode-docker
-    - plievone.vscode-template-literal-editor
-    - rebornix.ruby
-    - redhat.vscode-yaml
-    - robertohuertasm.vscode-icons
-    - samverschueren.final-newline
-    - Shan.code-settings-sync
-    - sianglim.slim
-    - vscoss.vscode-ansible
-    - wholroyd.jinja
+- name: Install settings sync extension
+  shell: code --install-extension Shan.code-settings-sync
   register: result
   changed_when: "'is already installed' not in result.stdout"
