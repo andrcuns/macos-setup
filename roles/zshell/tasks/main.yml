@@ -11,10 +11,14 @@
     dest: "{{ omzsh_dir }}"
     accept_hostkey: yes
 
+- name: Check if omzsh is installed
+  stat:
+    path: "{{ omzsh_dir }}"
+  register: omzsh
+
 - name: Install oh-my-zsh
   shell: "{{ omzsh_dir }}/tools/install.sh"
-  register: result
-  changed_when: "'You already have Oh My Zsh installed' not in result.stdout"
+  when: not omzsh.stat.exists
 
 - name: Clone pure theme
   git:

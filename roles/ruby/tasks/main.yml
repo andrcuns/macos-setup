@@ -20,7 +20,7 @@
     dest: "{{ rbenv_home }}/default-gems"
 
 - name: "Install ruby {{ ruby_version }}"
-  shell: "rbenv install {{ ruby_version }}"
+  shell: "rbenv install --skip-existing {{ ruby_version }}"
 
 - name: "Set ruby {{ ruby_version }} as global"
   shell: "rbenv global {{ ruby_version }}"

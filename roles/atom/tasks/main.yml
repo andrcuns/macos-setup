@@ -8,7 +8,6 @@
 - name: Install Atom packages
   shell: "apm install {{ item }}"
   with_items:
-    - language-docker
     - sort-lines
     - file-icons
     - minimap
