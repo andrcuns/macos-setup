@@ -4,17 +4,25 @@
   roles:
     # General
     - { role: common, tags: "common" }
-    - { role: git, tags: "git" }
+
+    # Shell
     - { role: zshell, tags: "zshell" }
-    - { role: docker, tags: "docker" }
     
     # Programming languages
-    - { role: sdks, tags: "sdks" }
-    - { role: node, tags: "node" }
+    - { role: python, tags: "python" }
     - { role: ruby, tags: "ruby" }
+    - { role: node, tags: "node" }
+    - { role: sdks, tags: "sdks" }
+
+    # DB
+    - { role: postgresql, tags: "postgresql" }
+
+    # Tools
+    - { role: git, tags: "git" }
+    - { role: docker, tags: "docker" }
+    - { role: aws, tags: "aws" }
 
     # Editors
-    - { role: atom, tags: "atom" }
     - { role: neovim, tags: "neovim" }
     - { role: jetbrains-toolbox, tags: "jetbrains-toolbox" }
     - { role: vscode, tags: "vscode" }
@@ -24,7 +32,6 @@
     - { role: spotify, tags: "spotify" }
     - { role: slack, tags: "slack" }
     - { role: rambox, tags: "rambox" }
-    - { role: vpn, tags: "vpn" }
     - { role: flycut, tags: "flycut" }
     - { role: postman, tags: "postman" }
     - { role: iterm2, tags: "iterm2" }

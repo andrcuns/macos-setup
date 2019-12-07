@@ -1,8 +1,13 @@
 ---
 
-- name: Install latest git
+- name: Install git
   homebrew:
     name: git
+    state: latest
+
+- name: Install git-lfs
+  homebrew:
+    name: git-lfs
     state: latest
 
 - name: Install diff-so-fancy

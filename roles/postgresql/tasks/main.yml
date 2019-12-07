@@ -1,0 +1,6 @@
+---
+
+- name: Install git
+  homebrew:
+    name: postgresql@9.6
+    state: latest

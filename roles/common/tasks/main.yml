@@ -8,7 +8,6 @@
 - name: Install common tools
   homebrew:
     name:
-      - python3
       - coreutils
       - findutils
       - gnupg
@@ -19,11 +18,9 @@
       - ncdu
       - tldr
       - direnv
-      - todolist
     state: latest
 
 - name: Install gnu-sed
   homebrew:
     name: gnu-sed
     state: latest
-    install_options: with-default-names

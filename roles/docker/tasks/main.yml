@@ -4,3 +4,14 @@
   homebrew_cask:
     name: docker
     state: present
+
+- name: Install docker ecr credentials helper
+  homebrew:
+    name: docker-credential-helper-ecr
+    state: latest
+
+- name: Add docker config for cred helper
+  template:
+    src: config.json.j2
+    dest: "{{ user.home }}/.docker/config.json"
+    force: no
