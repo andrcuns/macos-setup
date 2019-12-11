@@ -10,6 +10,11 @@
     name: docker-credential-helper-ecr
     state: latest
 
+- name: Create .docker directory
+  file:
+    path: "{{ user.home }}/.docker"
+    state: directory
+
 - name: Add docker config for cred helper
   template:
     src: config.json.j2

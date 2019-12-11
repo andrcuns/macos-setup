@@ -31,7 +31,6 @@
     - { role: browsers, tags: "browsers" }
     - { role: spotify, tags: "spotify" }
     - { role: slack, tags: "slack" }
-    - { role: rambox, tags: "rambox" }
     - { role: flycut, tags: "flycut" }
     - { role: postman, tags: "postman" }
     - { role: iterm2, tags: "iterm2" }

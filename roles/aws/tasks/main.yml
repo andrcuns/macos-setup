@@ -1,9 +1,17 @@
 ---
 
+- name: Init pyenv
+  shell: pyenv init -
+
 - name: Install aws cli
   pip: 
     name: awscli
     state: latest
+
+- name: Create .aws directory
+  file:
+    path: "{{ user.home }}/.aws"
+    state: directory
 
 - name: Add aws config
   template:

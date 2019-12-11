@@ -1,6 +1,0 @@
----
-
-- name: Install rambox
-  homebrew_cask:
-    name: rambox
-    state: present
