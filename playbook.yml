@@ -18,6 +18,7 @@
     - { role: postgresql, tags: "postgresql" }
 
     # Tools
+    - { role: gpg, tags: "gpg" }
     - { role: git, tags: "git" }
     - { role: docker, tags: "docker" }
     - { role: aws, tags: "aws" }

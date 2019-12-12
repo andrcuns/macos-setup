@@ -10,7 +10,6 @@
     name:
       - coreutils
       - findutils
-      - gnupg
       - grep
       - wget
       - bat
@@ -18,9 +17,5 @@
       - ncdu
       - tldr
       - direnv
-    state: latest
-
-- name: Install gnu-sed
-  homebrew:
-    name: gnu-sed
+      - gnu-sed
     state: latest
