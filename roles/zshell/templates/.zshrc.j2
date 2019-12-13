@@ -1,37 +1,25 @@
 # =====================================================================================================================
-# General zsh settings
+# Instant powerlevel10k prompt
 # =====================================================================================================================
-
-# Disable control flow (ctrl-s / ctrl-q)
-stty stop '' -ixoff -ixon
-
-# Set spelling correction
-setopt correct
-
-# Dont raise errors when regex nomatch fires
-unsetopt nomatch
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
 # =====================================================================================================================
 # Exports
 # =====================================================================================================================
+# GPG vars
 export LANG=en_US.UTF-8
 export GPG_TTY=$(tty)
 
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='nvim'
-fi
+# Preferred editor
+export EDITOR='nvim'
 
-# Add bin to path
+# Set custom PATH
 export PATH=$PATH:$HOME/bin:/usr/local/opt/postgresql@9.6/bin
 
 # Direnv integration¬
 eval "$(direnv hook zsh)"
-
-# Custom zsh-nvm options
-export NVM_LAZY_LOAD=true
 
 # Base16 Shell
 BASE16_SHELL="$HOME/.config/base16-shell/"
@@ -45,8 +33,11 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
-# Theme declaration
-ZSH_THEME="pure"
+# =====================================================================================================================
+# Powerlevel10k
+# =====================================================================================================================
+ZSH_THEME="powerlevel10k/powerlevel10k"
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # =====================================================================================================================
 # Plugins
@@ -63,8 +54,6 @@ plugins+=(docker kubectl kops aws)
 # DEV
 plugins+=(git gradle npm yarn gem zsh-nvm rbenv pyenv)
 
-# Disable marking repo as dirty due to untracked files
-DISABLE_UNTRACKED_FILES_DIRTY="true"
 # =====================================================================================================================
 # Sourcing
 # =====================================================================================================================
@@ -82,6 +71,9 @@ bindkey '^[[B' history-substring-search-down
 # Autosuggestions + Substring search config
 ZSH_AUTOSUGGEST_CLEAR_WIDGETS=("${(@)ZSH_AUTOSUGGEST_CLEAR_WIDGETS:#(up|down)-line-or-history}")
 ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(history-substring-search-up history-substring-search-down)
+
+# Custom zsh-nvm options
+export NVM_LAZY_LOAD=true
 
 # =====================================================================================================================
 # Additional aliases

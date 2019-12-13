@@ -20,35 +20,19 @@
   shell: "{{ omzsh_dir }}/tools/install.sh"
   when: not omzsh.stat.exists
 
-- name: Clone pure theme
+- name: Clone powerlevel10k theme
   git:
-    repo: "{{ github }}sindresorhus/pure.git"
-    dest: "{{ omzsh_themes_dir }}/pure"
+    repo: "{{ github }}romkatv/powerlevel10k.git"
+    dest: "{{ omzsh_themes_dir }}/powerlevel10k"
     accept_hostkey: yes
 
-- name: Symlink pure theme files
-  file:
-    src: "{{ item.src }}"
-    dest: "{{ item.dest }}"
-    state: link
-  with_items:
-    - { src: '{{ omzsh_themes_dir }}/pure/async.zsh' , dest: '{{ omzsh_custom_dir }}/async.zsh' }
-    - { src: '{{ omzsh_themes_dir }}/pure/pure.zsh' , dest: '{{ omzsh_themes_dir }}/pure.zsh-theme' }
-
-- name: Cloninig custom plugins
+- name: Cloning custom plugins
   git:
     repo: "{{ github }}{{ item.value }}/{{ item.key }}.git"
     dest: "{{ omzsh_plugins_dir }}/{{ item.key }}"
     accept_hostkey: yes
   with_dict:
     "{{ omzsh_plugins }}"
-
-- name: Download shell integration for iterm2
-  shell: |
-    curl -L https://iterm2.com/misc/zsh_startup.in \
-    -o "{{ user.home }}/.iterm2_shell_integration.zsh"
-  args:
-    creates: "{{ user.home }}/.iterm2_shell_integration.zsh"
 
 - name: Clone base16-shell theme
   git:
