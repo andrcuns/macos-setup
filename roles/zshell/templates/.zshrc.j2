@@ -21,6 +21,9 @@ export PATH=$PATH:$HOME/bin:/usr/local/opt/postgresql@9.6/bin
 # Direnv integration¬
 eval "$(direnv hook zsh)"
 
+# Ruby build configuration
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+
 # Base16 Shell
 BASE16_SHELL="$HOME/.config/base16-shell/"
 [ -n "$PS1" ] && \
