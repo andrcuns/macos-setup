@@ -5,12 +5,12 @@
     name: nvm
     state: latest
 
-- name: Add default packages
-  template:
-    src: default-packages.j2
-    dest: "{{ nvm_home }}/default-packages"
-
 - name: Install latest node version
   shell: "{{ init_nvm }} && nvm install --lts --latest-npm"
   register: nvm_result
   changed_when: "'is already installed' not in nvm_result.stderr"
+
+- name: Install yarn
+  homebrew:
+    name: yarn
+    state: latest

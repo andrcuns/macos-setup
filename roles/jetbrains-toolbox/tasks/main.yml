@@ -1,6 +1,0 @@
----
-
-- name: Install Jetbrains Toolbox
-  homebrew_cask:
-    name: jetbrains-toolbox
-    state: present

@@ -16,19 +16,10 @@ export GPG_TTY=$(tty)
 export EDITOR='nvim'
 
 # Set custom PATH
-export PATH=$PATH:$HOME/bin:/usr/local/opt/postgresql@9.6/bin
+export PATH=$PATH:$HOME/bin
 
 # Direnv integration¬
 eval "$(direnv hook zsh)"
-
-# Ruby build configuration
-export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
-
-# Base16 Shell
-BASE16_SHELL="$HOME/.config/base16-shell/"
-[ -n "$PS1" ] && \
-    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
-        eval "$("$BASE16_SHELL/profile_helper.sh")"
 
 # =====================================================================================================================
 # Oh my zsh settings
@@ -52,10 +43,10 @@ plugins=(brew)
 plugins+=(zsh-syntax-highlighting zsh-autosuggestions zsh-completions)
 
 # VM
-plugins+=(docker kubectl kops aws)
+plugins+=(docker kubectl aws)
 
 # DEV
-plugins+=(git gradle npm yarn gem zsh-nvm rbenv pyenv)
+plugins+=(git npm yarn gem zsh-nvm rbenv pyenv)
 
 # =====================================================================================================================
 # Sourcing
@@ -97,9 +88,9 @@ alias grep='ggrep'
 alias zshrc='vim $HOME/.zshrc'
 
 # Update software
-alias update='brew update && brew upgrade'
 alias npmupdate='npm update -g'
 alias gemupdate='gem update'
+alias update='brew update && brew upgrade && npmupdate && gemupdate'
 
 # =====================================================================================================================
 # SDKMAN

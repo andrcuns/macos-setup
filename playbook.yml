@@ -25,7 +25,6 @@
 
     # Editors
     - { role: neovim, tags: "neovim" }
-    - { role: jetbrains-toolbox, tags: "jetbrains-toolbox" }
     - { role: vscode, tags: "vscode" }
 
     # Desktop

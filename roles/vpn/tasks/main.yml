@@ -1,6 +1,0 @@
----
-
-- name: Installing viscosity
-  homebrew_cask:
-    name: viscosity
-    state: present
