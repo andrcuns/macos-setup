@@ -1,10 +1,7 @@
 ---
 
-- name: Install gpg tools
-  homebrew:
+- name: Install gpg-suite
+  homebrew_cask:
     name:
-      - gnupg
-      - gpg2
       - gpg-suite
-      - pinentry-mac
     state: latest

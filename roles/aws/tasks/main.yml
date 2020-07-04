@@ -1,9 +1,6 @@
 ---
 
-- name: Init pyenv
-  shell: pyenv init -
-
 - name: Install aws cli
-  pip: 
+  homebrew: 
     name: awscli
     state: latest

@@ -5,11 +5,6 @@
     name: pass
     state: present
 
-- name: Install bitwarden
-  homebrew_cask:
-    name: bitwarden
-    state: present
-
 - name: Install bitwarden-cli
   homebrew:
     name: bitwarden-cli

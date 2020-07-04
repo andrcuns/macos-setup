@@ -14,13 +14,11 @@
     - { role: node, tags: "node" }
     - { role: sdks, tags: "sdks" }
 
-    # DB
-    - { role: postgresql, tags: "postgresql" }
-
     # Tools
     - { role: gpg, tags: "gpg" }
     - { role: git, tags: "git" }
     - { role: docker, tags: "docker" }
+    - { role: k8s, tags: "k8s" }
     - { role: aws, tags: "aws" }
 
     # Editors
