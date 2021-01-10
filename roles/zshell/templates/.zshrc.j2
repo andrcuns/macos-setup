@@ -46,10 +46,10 @@ plugins=(brew sudo)
 plugins+=(zsh-syntax-highlighting zsh-autosuggestions zsh-completions)
 
 # VM
-plugins+=(docker kubectl aws)
+plugins+=(docker kubectl)
 
 # DEV
-plugins+=(git npm yarn gem zsh-nvm rbenv pyenv)
+plugins+=(git npm yarn gem zsh-nvm rbenv)
 
 # =====================================================================================================================
 # Sourcing
@@ -94,7 +94,7 @@ alias zshrc='vim $HOME/.zshrc'
 # Update software
 alias npmupdate='npm update -g'
 alias gemupdate='gem update'
-alias update='brew update && brew upgrade && npmupdate && gemupdate'
+alias update='brew cu && npmupdate && gemupdate'
 
 # =====================================================================================================================
 # SDKMAN

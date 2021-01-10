@@ -1,7 +1,0 @@
----
-
-- name: Install gpg-suite
-  homebrew_cask:
-    name:
-      - gpg-suite
-    state: latest

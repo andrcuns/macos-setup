@@ -1,16 +1,6 @@
 ---
 
-- name: Install nvm
-  homebrew:
-    name: nvm
-    state: latest
-
 - name: Install latest node version
   shell: "{{ init_nvm }} && nvm install --lts --latest-npm"
   register: nvm_result
   changed_when: "'is already installed' not in nvm_result.stderr"
-
-- name: Install yarn
-  homebrew:
-    name: yarn
-    state: latest

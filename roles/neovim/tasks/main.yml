@@ -1,11 +1,7 @@
 ---
 
-- name: Installing neovim
-  homebrew:
-    name: neovim
-    state: present
-
-- file:
+- name: Create nvim config folder
+  file:
     path: "{{ user.home }}/.config/nvim"
     state: directory
 

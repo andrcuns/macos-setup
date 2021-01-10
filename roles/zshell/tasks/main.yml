@@ -1,10 +1,5 @@
 ---
 
-- name: Installing zsh shell
-  homebrew:
-    name: zsh
-    state: latest
-
 - name: Clone oh-my-zsh
   git:
     repo: "{{ github }}robbyrussell/oh-my-zsh.git"
@@ -49,3 +44,8 @@
   template:
     src: .zshrc.j2
     dest: "{{ user.home }}/.zshrc"
+
+- name: Create powerlevel10k config
+  template:
+    src: .p10k.zsh.j2
+    dest: "{{ user.home }}/.p10k.zsh"

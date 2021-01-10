@@ -1,10 +1,5 @@
 ---
 
-- name: Install Visual Studio Code
-  homebrew_cask:
-    name: visual-studio-code
-    state: present
-
 - name: Install settings sync extension
   shell: code --install-extension Shan.code-settings-sync
   register: result
