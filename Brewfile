@@ -45,11 +45,9 @@ cask 'firefox'
 cask 'font-fira-code-nerd-font'
 cask 'flycut'
 cask 'gpg-suite'
-cask 'iterm2-beta'
+cask 'iterm2'
 cask 'lens'
 cask 'postman'
 cask 'spotify'
 cask 'visual-studio-code'
-
-# mac store apps
-mas '441258766' # magnet
+cask 'vnc-viewer'
