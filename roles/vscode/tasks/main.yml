@@ -1,6 +1,0 @@
----
-
-- name: Install settings sync extension
-  shell: code --install-extension Shan.code-settings-sync
-  register: result
-  changed_when: "'is already installed' not in result.stdout"

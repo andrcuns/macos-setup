@@ -12,7 +12,6 @@
 
     # Editors
     - { role: neovim, tags: "neovim" }
-    - { role: vscode, tags: "vscode" }
     
     # Dotfiles
     - { role: stow, tags: "stow" }
