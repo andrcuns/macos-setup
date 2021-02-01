@@ -28,3 +28,19 @@
     accept_hostkey: yes
   with_dict:
     "{{ omzsh_plugins }}"
+
+- name: Checking for original .zshrc
+  stat:
+    path: "{{ user.home }}/.zshrc"
+  register: stat_zshrc
+
+- name: Backing up .zshrc file
+  command: "mv {{ user.home }}/.zshrc {{ user.home }}/.zshrc.bak"
+  args:
+    creates: "{{ user.home }}/.zshrc.bak"
+  when: stat_zshrc.stat.exists
+
+- name: Create .zshrc
+  template:
+    src: .zshrc.j2
+    dest: "{{ user.home }}/.zshrc"
