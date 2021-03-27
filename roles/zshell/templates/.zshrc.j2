@@ -1,3 +1,6 @@
+# Fix insecure completion-dependent directories detected on Catalina
+export ZSH_DISABLE_COMPFIX="true"
+
 # =====================================================================================================================
 # Instant powerlevel10k prompt
 # =====================================================================================================================
@@ -24,9 +27,6 @@ eval "$(direnv hook zsh)"
 # =====================================================================================================================
 # Oh my zsh settings
 # =====================================================================================================================
-# Fix insecure completion-dependent directories detected on Catalina
-export ZSH_DISABLE_COMPFIX="true"
-
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
