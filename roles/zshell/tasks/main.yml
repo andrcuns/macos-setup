@@ -44,3 +44,8 @@
   template:
     src: .zshrc.j2
     dest: "{{ user.home }}/.zshrc"
+
+- name: Create .zprofile
+  template:
+    src: .zprofile.j2
+    dest: "{{ user.home }}/.zprofile"
