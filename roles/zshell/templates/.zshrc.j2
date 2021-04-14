@@ -1,3 +1,6 @@
+# Fix insecure completion-dependent directories detected on Catalina
+export ZSH_DISABLE_COMPFIX="true"
+
 # =====================================================================================================================
 # Instant powerlevel10k prompt
 # =====================================================================================================================
@@ -15,18 +18,18 @@ export GPG_TTY=$(tty)
 # Preferred editor
 export EDITOR='nvim'
 
-# Set custom PATH
-export PATH=$PATH:$HOME/bin
+# Build ruby with homebrew openssl
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 
 # Direnv integration¬
 eval "$(direnv hook zsh)"
 
+# Set custom PATH
+export PATH=$PATH:$HOME/bin
+
 # =====================================================================================================================
 # Oh my zsh settings
 # =====================================================================================================================
-# Fix insecure completion-dependent directories detected on Catalina
-export ZSH_DISABLE_COMPFIX="true"
-
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
@@ -39,17 +42,17 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # =====================================================================================================================
 # Plugins
 # =====================================================================================================================
-# OSX 
+# OSX
 plugins=(brew sudo)
 
 # TERMINAL
 plugins+=(zsh-syntax-highlighting zsh-autosuggestions zsh-completions)
 
 # VM
-plugins+=(docker kubectl aws)
+plugins+=(docker kubectl)
 
 # DEV
-plugins+=(git npm yarn gem zsh-nvm rbenv pyenv)
+plugins+=(git npm yarn gem zsh-nvm rbenv)
 
 # =====================================================================================================================
 # Sourcing
@@ -82,7 +85,6 @@ alias dockerstopall='docker stop $(docker ps -a -q)'
 alias dockerrmall='docker rm $(docker ps -a -q)'
 alias dockerrmidangling='docker rmi -f $(docker images -f "dangling=true" -q)'
 alias cat='bat'
-alias ping='prettyping --nolegend'
 alias help='tldr'
 alias q='exit'
 alias fsize='ncdu --color dark -x --exclude .git --exclude node_modules'
@@ -91,14 +93,9 @@ alias ld='lazydocker'
 alias grep='ggrep'
 alias zshrc='vim $HOME/.zshrc'
 
-# Update software
-alias npmupdate='npm update -g'
-alias gemupdate='gem update'
-alias update='brew update && brew upgrade && npmupdate && gemupdate'
-
 # =====================================================================================================================
 # SDKMAN
 # =====================================================================================================================
 # THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="{{ user.home }}/.sdkman"
-[[ -s "{{ user.home }}/.sdkman/bin/sdkman-init.sh" ]] && source "{{ user.home }}/.sdkman/bin/sdkman-init.sh"
+export SDKMAN_DIR="/Users/andrejs/.sdkman"
+[[ -s "/Users/andrejs/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/andrejs/.sdkman/bin/sdkman-init.sh"

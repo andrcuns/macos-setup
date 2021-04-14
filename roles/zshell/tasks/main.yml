@@ -1,10 +1,5 @@
 ---
 
-- name: Installing zsh shell
-  homebrew:
-    name: zsh
-    state: latest
-
 - name: Clone oh-my-zsh
   git:
     repo: "{{ github }}robbyrussell/oh-my-zsh.git"
@@ -40,12 +35,17 @@
   register: stat_zshrc
 
 - name: Backing up .zshrc file
-  command: mv ~/.zshrc ~/.zshrc.bak
+  command: "mv {{ user.home }}/.zshrc {{ user.home }}/.zshrc.bak"
   args:
-    creates: ~/.zshrc.bak
+    creates: "{{ user.home }}/.zshrc.bak"
   when: stat_zshrc.stat.exists
 
 - name: Create .zshrc
   template:
     src: .zshrc.j2
     dest: "{{ user.home }}/.zshrc"
+
+- name: Create .zprofile
+  template:
+    src: .zprofile.j2
+    dest: "{{ user.home }}/.zprofile"

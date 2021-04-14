@@ -1,2 +1,3 @@
 .DS_Store
 playbook.retry
+Brewfile.lock.json

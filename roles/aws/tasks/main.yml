@@ -1,6 +1,0 @@
----
-
-- name: Install aws cli
-  homebrew: 
-    name: awscli
-    state: latest

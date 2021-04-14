@@ -1,6 +1,0 @@
----
-
-- name: Install iterm2
-  homebrew_cask:
-    name: homebrew/cask-versions/iterm2-beta
-    state: present

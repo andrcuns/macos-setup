@@ -1,10 +1,5 @@
 ---
 
-- name: Install rbenv
-  homebrew:
-    name: rbenv
-    state: latest
-
 - name: Init rbenv
   shell: rbenv init -
 
