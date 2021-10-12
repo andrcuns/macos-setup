@@ -1,6 +1,0 @@
----
-
-- name: Install Spotify client
-  homebrew_cask:
-    name: spotify
-    state: present

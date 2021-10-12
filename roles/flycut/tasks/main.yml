@@ -1,6 +1,0 @@
----
-
-- name: Installing flycut clipboard manager
-  homebrew_cask:
-    name: flycut
-    state: present

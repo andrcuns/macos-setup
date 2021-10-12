@@ -1,6 +1,0 @@
----
-
-- name: Install slack desktop
-  homebrew_cask:
-    name: slack
-    state: present

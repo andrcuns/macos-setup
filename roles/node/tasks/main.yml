@@ -1,16 +1,12 @@
 ---
 
 - name: Install nvm
-  homebrew:
-    name: nvm
-    state: latest
+  shell: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
+  args:
+    creates: "{{ nvm_home }}/nvm.sh"
+    warn: false
 
 - name: Install latest node version
   shell: "{{ init_nvm }} && nvm install --lts --latest-npm"
   register: nvm_result
   changed_when: "'is already installed' not in nvm_result.stderr"
-
-- name: Install yarn
-  homebrew:
-    name: yarn
-    state: latest

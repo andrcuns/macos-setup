@@ -1,38 +1,17 @@
----
+# Assumes brew bundle has finished and installed all of the software
 
 - hosts: localhost
   roles:
-    # General
-    - { role: common, tags: "common" }
-
     # Shell
     - { role: zshell, tags: "zshell" }
     
     # Programming languages
-    - { role: python, tags: "python" }
     - { role: ruby, tags: "ruby" }
     - { role: node, tags: "node" }
     - { role: sdks, tags: "sdks" }
 
-    # Tools
-    - { role: gpg, tags: "gpg" }
-    - { role: git, tags: "git" }
-    - { role: docker, tags: "docker" }
-    - { role: k8s, tags: "k8s" }
-    - { role: aws, tags: "aws" }
-
     # Editors
     - { role: neovim, tags: "neovim" }
-    - { role: vscode, tags: "vscode" }
-
-    # Desktop
-    - { role: browsers, tags: "browsers" }
-    - { role: spotify, tags: "spotify" }
-    - { role: slack, tags: "slack" }
-    - { role: flycut, tags: "flycut" }
-    - { role: postman, tags: "postman" }
-    - { role: iterm2, tags: "iterm2" }
-    - { role: pass, tags: "pass" }
     
     # Dotfiles
     - { role: stow, tags: "stow" }
