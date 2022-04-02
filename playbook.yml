@@ -8,7 +8,6 @@
     # Programming languages
     - { role: ruby, tags: "ruby" }
     - { role: node, tags: "node" }
-    - { role: sdks, tags: "sdks" }
 
     # Editors
     - { role: neovim, tags: "neovim" }
