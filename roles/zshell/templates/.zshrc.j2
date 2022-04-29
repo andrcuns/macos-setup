@@ -43,7 +43,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Plugins
 # =====================================================================================================================
 # OSX
-plugins=(brew sudo)
+plugins=(brew sudo pass)
 
 # TERMINAL
 plugins+=(zsh-syntax-highlighting zsh-autosuggestions zsh-completions)
@@ -95,10 +95,4 @@ alias lg='lazygit'
 alias ld='lazydocker'
 alias grep='ggrep'
 alias zshrc='vim $HOME/.zshrc'
-
-# =====================================================================================================================
-# SDKMAN
-# =====================================================================================================================
-# THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/Users/andrejs/.sdkman"
-[[ -s "/Users/andrejs/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/andrejs/.sdkman/bin/sdkman-init.sh"
+alias rosetta='arch -x86_64'
