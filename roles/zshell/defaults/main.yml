@@ -11,5 +11,5 @@ omzsh_plugins: {
   zsh-completions: zsh-users,
   zsh-history-substring-search: zsh-users,
   zsh-nvm: lukechilds,
-  zsh-kubectx: ptavares
+  kubectx-zshplugin: unixorn
 }
