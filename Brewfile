@@ -60,7 +60,7 @@ cask 'jetbrains-toolbox'
 cask 'postman'
 cask 'slack'
 cask 'spotify'
-cask 'visual-studio-code'
+cask 'visual-studio-code-insiders'
 cask 'vnc-viewer'
 
 mas 'Magnet', id: 441258766
