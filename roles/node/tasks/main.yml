@@ -4,7 +4,6 @@
   shell: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
   args:
     creates: "{{ nvm_home }}/nvm.sh"
-    warn: false
 
 - name: Install latest node version
   shell: "{{ init_nvm }} && nvm install --lts --latest-npm"
