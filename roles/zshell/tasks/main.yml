@@ -15,6 +15,18 @@
   shell: "{{ omzsh_dir }}/tools/install.sh"
   when: not omzsh.stat.exists
 
+- name: Clone spaceship theme
+  git:
+    repo: "{{ github }}spaceship-prompt/spaceship-prompt.git"
+    dest: "{{ omzsh_themes_dir }}/spaceship-prompt"
+    accept_hostkey: yes
+
+- name: Link spaceship theme
+  file:
+    src: "{{ omzsh_themes_dir }}/spaceship-prompt/spaceship.zsh-theme"
+    dest: "{{ omzsh_themes_dir }}/spaceship.zsh-theme"
+    state: link
+
 - name: Cloning custom plugins
   git:
     repo: "{{ github }}{{ item.value }}/{{ item.key }}.git"
@@ -27,19 +39,22 @@
   stat:
     path: "{{ user.home }}/.zshrc"
   register: stat_zshrc
+  when: not skip_config_tasks
 
 - name: Backing up .zshrc file
   command: "mv {{ user.home }}/.zshrc {{ user.home }}/.zshrc.bak"
   args:
     creates: "{{ user.home }}/.zshrc.bak"
-  when: stat_zshrc.stat.exists
+  when: (not skip_config_tasks) and stat_zshrc.stat.exists
 
 - name: Create .zshrc
   template:
     src: .zshrc.j2
     dest: "{{ user.home }}/.zshrc"
+  when: not skip_config_tasks
 
 - name: Create .zprofile
   template:
     src: .zprofile.j2
     dest: "{{ user.home }}/.zprofile"
+  when: not skip_config_tasks
