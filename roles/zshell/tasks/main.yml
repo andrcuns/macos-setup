@@ -15,12 +15,6 @@
   shell: "{{ omzsh_dir }}/tools/install.sh"
   when: not omzsh.stat.exists
 
-- name: Clone powerlevel10k theme
-  git:
-    repo: "{{ github }}romkatv/powerlevel10k.git"
-    dest: "{{ omzsh_themes_dir }}/powerlevel10k"
-    accept_hostkey: yes
-
 - name: Cloning custom plugins
   git:
     repo: "{{ github }}{{ item.value }}/{{ item.key }}.git"

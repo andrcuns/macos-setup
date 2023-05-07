@@ -2,13 +2,6 @@
 export ZSH_DISABLE_COMPFIX="true"
 
 # =====================================================================================================================
-# Instant powerlevel10k prompt
-# =====================================================================================================================
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
-# =====================================================================================================================
 # Exports
 # =====================================================================================================================
 # GPG vars
@@ -37,10 +30,10 @@ export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 export ZSH=$HOME/.oh-my-zsh
 
 # =====================================================================================================================
-# Powerlevel10k
+# Spaceship theme
 # =====================================================================================================================
-ZSH_THEME="powerlevel10k/powerlevel10k"
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+ZSH_THEME="spaceship"
+source $(brew --prefix)/opt/spaceship/spaceship.zsh
 
 # =====================================================================================================================
 # Plugins
@@ -52,7 +45,7 @@ plugins=(brew sudo pass)
 plugins+=(zsh-syntax-highlighting zsh-autosuggestions zsh-completions)
 
 # VM
-plugins+=(docker kubectl kubectx)
+plugins+=(docker kubectl)
 
 # DEV
 plugins+=(git npm yarn gem zsh-nvm rbenv)
