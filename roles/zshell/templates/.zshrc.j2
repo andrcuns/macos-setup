@@ -11,9 +11,6 @@ export GPG_TTY=$(tty)
 # Preferred editor
 export EDITOR='nvim'
 
-# Build ruby with homebrew openssl
-export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@3)"
-
 # Direnv integration¬
 eval "$(direnv hook zsh)"
 
@@ -22,6 +19,14 @@ export PATH=$PATH:$HOME/bin
 
 # Gcloud k8s authentication
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True
+
+# Ruby
+export BUNDLE_SUPPRESS_INSTALL_USING_MESSAGES=true
+export BUNDLE_AUTO_INSTALL=true
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@3)"
+
+# Docker
+export COMPOSE_DOCKER_CLI_BUILD=1
 
 # =====================================================================================================================
 # Oh my zsh settings
@@ -77,25 +82,32 @@ export NVM_LAZY_LOAD=true
 # =====================================================================================================================
 # Additional aliases
 # =====================================================================================================================
+# nvim
 alias vim='nvim'
+
+# git
 alias gbd='git push origin --delete $(git_current_branch)'
 alias gcleanup=$'git fetch -p && git branch -v | grep \'gone\' | awk \'{print $1}\' | xargs -n 1 git branch -D'
+alias lg='lazygit'
+
+# docker
 alias dockerstopall='docker stop $(docker ps -a -q)'
 alias dockerrmall='docker rm $(docker ps -a -q)'
 alias dockerrmidangling='docker rmi -f $(docker images -f "dangling=true" -q)'
-alias cat='bat'
-alias help='tldr'
-alias q='exit'
-alias fsize='ncdu --color dark -x --exclude .git --exclude node_modules'
-alias lg='lazygit'
+alias dcontext='docker context use'
 alias ld='lazydocker'
-alias grep='ggrep'
-alias zshrc='vim $HOME/.zshrc'
-alias rosetta='arch -x86_64'
-# gcloud and docker context
+
+# gcloud
 alias gaccount='gcloud config configurations activate'
 alias gclist='gcloud config configurations list'
 alias gcstart='gcloud compute instances start'
 alias gcstop='gcloud compute instances stop'
-alias dcontext='docker context use'
 
+# misc
+alias cat='bat'
+alias help='tldr'
+alias q='exit'
+alias fsize='ncdu --color dark -x --exclude .git --exclude node_modules'
+alias grep='ggrep'
+alias zshrc='vim $HOME/.zshrc'
+alias rosetta='arch -x86_64'
