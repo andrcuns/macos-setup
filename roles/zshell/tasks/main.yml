@@ -15,17 +15,11 @@
   shell: "{{ omzsh_dir }}/tools/install.sh"
   when: not omzsh.stat.exists
 
-- name: Clone spaceship theme
+- name: Clone powerlevel10k theme
   git:
-    repo: "{{ github }}spaceship-prompt/spaceship-prompt.git"
-    dest: "{{ omzsh_themes_dir }}/spaceship-prompt"
+    repo: "{{ github }}romkatv/powerlevel10k.git"
+    dest: "{{ omzsh_themes_dir }}/powerlevel10k"
     accept_hostkey: yes
-
-- name: Link spaceship theme
-  file:
-    src: "{{ omzsh_themes_dir }}/spaceship-prompt/spaceship.zsh-theme"
-    dest: "{{ omzsh_themes_dir }}/spaceship.zsh-theme"
-    state: link
 
 - name: Cloning custom plugins
   git:
