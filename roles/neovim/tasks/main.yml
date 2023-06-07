@@ -6,6 +6,11 @@
     dest: "{{ user.home }}/.config/nvim"
     accept_hostkey: yes
 
+- name: Create nvchad custom directory
+  file:
+    path: "{{ nvchad_custom_dir }}"
+    state: directory
+
 - name: Add chadrc.lua
   template:
     src: chadrc.lua.j2
