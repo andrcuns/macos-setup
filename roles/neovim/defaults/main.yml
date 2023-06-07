@@ -1,0 +1,3 @@
+---
+
+nvchad_custom_dir: "{{ user.home }}/.config/nvim/lua/custom"

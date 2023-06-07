@@ -1,11 +1,17 @@
 ---
 
-- name: Create nvim config folder
-  file:
-    path: "{{ user.home }}/.config/nvim"
-    state: directory
+- name: Clone nvchad
+  git:
+    repo: "{{ github }}NvChad/NvChad"
+    dest: "{{ user.home }}/.config/nvim"
+    accept_hostkey: yes
 
-- name: Set init.vim
+- name: Add chadrc.lua
   template:
-    src: init.vim.j2
-    dest: "{{ user.home }}/.config/nvim/init.vim"
+    src: chadrc.lua.j2
+    dest: "{{ nvchad_custom_dir }}/chadrc.lua"
+
+- name: Add init.lua
+  template:
+    src: init.lua.j2
+    dest: "{{ nvchad_custom_dir }}/init.lua"
