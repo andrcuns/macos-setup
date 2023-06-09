@@ -21,6 +21,11 @@
     dest: "{{ omzsh_themes_dir }}/powerlevel10k"
     accept_hostkey: yes
 
+- name: Add p10k config file
+  template:
+    src: p10k.zsh.j2
+    dest: "{{ user.home }}/.p10k.zsh"
+
 - name: Cloning custom plugins
   git:
     repo: "{{ github }}{{ item.value }}/{{ item.key }}.git"
