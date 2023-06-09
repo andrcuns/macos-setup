@@ -22,9 +22,11 @@
     accept_hostkey: yes
 
 - name: Add p10k config file
-  template:
-    src: p10k.zsh.j2
+  copy:
+    src: .p10k.zsh
     dest: "{{ user.home }}/.p10k.zsh"
+    backup: true
+  when: not skip_config_tasks
 
 - name: Cloning custom plugins
   git:
@@ -34,26 +36,16 @@
   with_dict:
     "{{ omzsh_plugins }}"
 
-- name: Checking for original .zshrc
-  stat:
-    path: "{{ user.home }}/.zshrc"
-  register: stat_zshrc
-  when: not skip_config_tasks
-
-- name: Backing up .zshrc file
-  command: "mv {{ user.home }}/.zshrc {{ user.home }}/.zshrc.bak"
-  args:
-    creates: "{{ user.home }}/.zshrc.bak"
-  when: (not skip_config_tasks) and stat_zshrc.stat.exists
-
 - name: Create .zshrc
   template:
     src: .zshrc.j2
     dest: "{{ user.home }}/.zshrc"
+    backup: true
   when: not skip_config_tasks
 
 - name: Create .zprofile
-  template:
-    src: .zprofile.j2
+  copy:
+    src: .zprofile
     dest: "{{ user.home }}/.zprofile"
+    backup: true
   when: not skip_config_tasks
