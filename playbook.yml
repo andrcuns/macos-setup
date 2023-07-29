@@ -14,3 +14,6 @@
     
     # Dotfiles
     - { role: stow, tags: "stow" }
+
+    # Misc
+    - { role: gpg, tags: "gpg" }
