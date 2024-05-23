@@ -2,21 +2,18 @@
 
 - name: Clone nvchad
   git:
-    repo: "{{ github }}NvChad/NvChad"
+    repo: "{{ github }}NvChad/starter"
     dest: "{{ user.home }}/.config/nvim"
     accept_hostkey: yes
-
-- name: Create nvchad custom directory
-  file:
-    path: "{{ nvchad_custom_dir }}"
-    state: directory
+    force: yes
 
 - name: Add chadrc.lua
   template:
     src: chadrc.lua.j2
-    dest: "{{ nvchad_custom_dir }}/chadrc.lua"
+    dest: "{{ nvchad_dir }}/lua/chadrc.lua"
 
-- name: Add init.lua
-  template:
-    src: init.lua.j2
-    dest: "{{ nvchad_custom_dir }}/init.lua"
+- name: Add colorcolumn option
+  lineinfile:
+    path: "{{ nvchad_dir }}/init.lua"
+    line: vim.opt.colorcolumn = "120"
+    state: present
