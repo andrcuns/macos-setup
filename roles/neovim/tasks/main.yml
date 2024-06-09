@@ -2,8 +2,8 @@
 
 - name: Clone nvchad
   git:
-    repo: "{{ github }}NvChad/starter"
-    dest: "{{ user.home }}/.config/nvim"
+    repo: "{{ github }}NvChad/starter.git"
+    dest: "{{ nvchad_dir }}"
     accept_hostkey: yes
     force: yes
 
@@ -17,3 +17,6 @@
     path: "{{ nvchad_dir }}/init.lua"
     line: vim.opt.colorcolumn = "120"
     state: present
+
+# :MasonInstallAll should be run after the nvchad installation and all the plugin installations
+# Run 'Lazy sync' to update plugins
