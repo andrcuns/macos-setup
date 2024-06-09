@@ -46,6 +46,7 @@ brew 'tldr'
 brew 'wget'
 brew 'yarn'
 brew 'zsh'
+brew 'zoxide'
 brew 'k9s'
 
 cask 'brave-browser'
