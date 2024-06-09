@@ -126,10 +126,9 @@ alias fsize='ncdu --color dark -x --exclude .git --exclude node_modules'
 alias grep='ggrep'
 alias zshrc='vim $HOME/.zshrc'
 alias rosetta='arch -x86_64'
-alias cd='z'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Zoxide integration
-eval "$(zoxide init zsh)"
+eval "$(zoxide init --cmd cd zsh)"
