@@ -17,3 +17,4 @@
 
     # Misc
     - { role: gpg, tags: "gpg" }
+    - { role: terraform, tags: "terraform" }

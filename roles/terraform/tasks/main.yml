@@ -1,6 +1,6 @@
 ---
 
-- name: Install latest node version
-  shell: "{{ mise }} use --global --pin node"
+- name: Install latest terraform version
+  shell: "{{ mise }} use --global --pin terraform"
   register: mise_result
   changed_when: "mise_result.stderr is search('✓ installed')"

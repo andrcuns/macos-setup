@@ -5,3 +5,4 @@ user:
 
 github: "https://github.com/"
 dotfiles: "{{ user.home }}/.dotfiles"
+mise: "/opt/homebrew/bin/mise"

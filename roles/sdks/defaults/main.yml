@@ -1,2 +1,0 @@
-init_sdkman: "source {{ user.home }}/.sdkman/bin/sdkman-init.sh"
-sdks: [ java ]

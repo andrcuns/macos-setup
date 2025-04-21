@@ -1,21 +1,11 @@
 ---
 
-- name: Init rbenv
-  shell: rbenv init -
+- name: "Install rust for YJIT support"
+  shell: "{{ mise }} use --global --pin rust"
+  register: mise_result_rust
+  changed_when: "mise_result_rust.stderr is search('✓ installed')"
 
-- name: Install rbenv default gems plugin
-  git:
-    repo: "{{ github }}rbenv/rbenv-default-gems.git"
-    dest: "{{ rbenv_home }}/plugins/rbenv-default-gems"
-    accept_hostkey: yes
-
-- name: Add default gems
-  template:
-    src: default-gems.j2
-    dest: "{{ rbenv_home }}/default-gems"
-
-- name: "Install ruby {{ ruby_version }}"
-  shell: "rbenv install --skip-existing {{ ruby_version }}"
-
-- name: "Set ruby {{ ruby_version }} as global"
-  shell: "rbenv global {{ ruby_version }}"
+- name: "Install latest ruby"
+  shell: "{{ mise }} use --global --pin ruby"
+  register: mise_result_ruby
+  changed_when: "mise_result_ruby.stderr is search('✓ installed')"

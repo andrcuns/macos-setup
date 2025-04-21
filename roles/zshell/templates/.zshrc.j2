@@ -59,7 +59,7 @@ plugins+=(zsh-syntax-highlighting zsh-autosuggestions zsh-completions)
 plugins+=(docker kubectl)
 
 # DEV
-plugins+=(git npm yarn gem zsh-nvm rbenv)
+plugins+=(git npm yarn gem mise)
 
 # Cloud
 plugins+=(gcloud aws)
@@ -81,9 +81,6 @@ bindkey '^[[B' history-substring-search-down
 # Autosuggestions + Substring search config
 ZSH_AUTOSUGGEST_CLEAR_WIDGETS=("${(@)ZSH_AUTOSUGGEST_CLEAR_WIDGETS:#(up|down)-line-or-history}")
 ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(history-substring-search-up history-substring-search-down)
-
-# Custom zsh-nvm options
-export NVM_LAZY_LOAD=true
 
 # =====================================================================================================================
 # Additional aliases
@@ -117,8 +114,8 @@ alias bguard='bundle exec guard'
 alias bsidekiq='bundle exec sidekiq'
 
 # misc
-alias ghcps='gh copilot suggest'
-alias ghcpe='gh copilot explain'
+alias ghcs='gh copilot suggest'
+alias ghce='gh copilot explain'
 alias cat='bat'
 alias help='tldr'
 alias q='exit'
