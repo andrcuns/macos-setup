@@ -2,19 +2,17 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 format = """
-$directory\
-$git_branch\
-$git_status\
-$git_metrics\
-$cmd_duration\
+$directory$git_branch$git_status$git_metrics$cmd_duration\
+$fill\
+$ruby$nodejs$terraform$kubernetes$direnv$memory_usage\
 $line_break\
 $character"""
 
-# Right prompt
-right_format = ""
-
 # A continuation prompt that displays two filled-in arrows
 continuation_prompt = '▶▶ '
+
+[fill]
+symbol = " "
 
 [directory]
 style = "blue"
@@ -33,7 +31,7 @@ style = "bright-black"
 symbol = " "
 
 [git_status]
-format = "[ $staged $conflicted$deleted$renamed$modified$typechanged$untracked$ahead_behind$stashed]($style)"
+format = "[ $staged$conflicted$deleted$renamed$modified$typechanged$untracked$ahead_behind$stashed]($style)"
 style = "cyan"
 conflicted = '[=$count](red)'
 ahead = '⇡${count}'
@@ -42,7 +40,7 @@ behind = '⇣${count}'
 untracked = '[?$count](purple)'
 stashed = "[*$count](blue)"
 modified = '[!$count](yellow)'
-staged = "[+$count](green)"
+staged = "[+$count ](green)"
 renamed = "»$count"
 deleted = "[✘$count](red)"
 
@@ -58,130 +56,36 @@ format = ' ([+$added]($added_style)/[-$deleted]($deleted_style))'
 format = "[$duration]($style) "
 style = "yellow"
 
-# Nerd font symbols
-[aws]
-symbol = "  "
-
-[buf]
-symbol = " "
-
-[c]
-symbol = " "
-
-[cmake]
-symbol = " "
-
-[conda]
-symbol = " "
-
-[crystal]
-symbol = " "
-
-[dart]
-symbol = " "
-
-[docker_context]
-symbol = " "
-
-[elixir]
-symbol = " "
-
-[elm]
-symbol = " "
-
-[fennel]
-symbol = " "
-
-[fossil_branch]
-symbol = " "
-
 [git_commit]
 tag_symbol = '  '
-
-[golang]
-symbol = " "
-
-[guix_shell]
-symbol = " "
-
-[haskell]
-symbol = " "
-
-[haxe]
-symbol = " "
-
-[hg_branch]
-symbol = " "
 
 [hostname]
 ssh_symbol = " "
 ssh_only = true
 
-[java]
-symbol = " "
-
-[julia]
-symbol = " "
-
-[kotlin]
-symbol = " "
-
-[lua]
-symbol = " "
-
 [memory_usage]
 symbol = "󰍛 "
-
-[meson]
-symbol = "󰔷 "
-
-[nim]
-symbol = "󰆥 "
-
-[nix_shell]
-symbol = " "
+disabled = false
+format = '$symbol[${ram}]($style) '
+threshold = 50
 
 [nodejs]
 symbol = " "
-
-[ocaml]
-symbol = " "
-
-[os.symbols]
-Macos = " "
-
-[package]
-symbol = "󰏗 "
-
-[perl]
-symbol = " "
-
-[php]
-symbol = " "
-
-[pijul_channel]
-symbol = " "
-
-[python]
-symbol = " "
-
-[rlang]
-symbol = "󰟔 "
+format = '[$symbol($version )]($style)'
 
 [ruby]
 symbol = " "
+format = '[$symbol($version )]($style)'
 
-[rust]
-symbol = "󱘗 "
+[terraform]
+symbol = "󱁢 "
+format = '[$symbol$workspace]($style) '
 
-[scala]
-symbol = " "
+[kubernetes]
+disabled = false
+symbol = "󱃾 "
+style = "cyan purple"
+format = '[$symbol$context( \($namespace\))]($style) '
 
-[swift]
-symbol = " "
-
-[zig]
-symbol = " "
-
-[gradle]
-symbol = " "
+[direnv]
+disabled = false
