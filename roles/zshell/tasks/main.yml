@@ -15,19 +15,6 @@
   shell: "{{ omzsh_dir }}/tools/install.sh"
   when: not omzsh.stat.exists
 
-- name: Clone powerlevel10k theme
-  git:
-    repo: "{{ github }}romkatv/powerlevel10k.git"
-    dest: "{{ omzsh_themes_dir }}/powerlevel10k"
-    accept_hostkey: yes
-
-- name: Add p10k config file
-  copy:
-    src: .p10k.zsh
-    dest: "{{ user.home }}/.p10k.zsh"
-    backup: true
-  when: not skip_config_tasks
-
 - name: Cloning custom plugins
   git:
     repo: "{{ github }}{{ item.value }}/{{ item.key }}.git"
@@ -47,5 +34,12 @@
   copy:
     src: .zprofile
     dest: "{{ user.home }}/.zprofile"
+    backup: true
+  when: not skip_config_tasks
+
+- name: Create starship.toml
+  copy:
+    src: starship.toml
+    dest: "{{ user.home }}/.config/starship.toml"
     backup: true
   when: not skip_config_tasks
