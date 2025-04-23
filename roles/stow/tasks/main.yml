@@ -3,4 +3,4 @@
 - name: Symlink configs
   command: "stow -d {{ dotfiles }} -S {{ item }}"
   with_lines: "cat {{ dotfiles }}/stow.txt"
-  ignore_errors: yes
+  ignore_errors: true
