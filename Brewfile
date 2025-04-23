@@ -42,12 +42,6 @@ brew 'zsh'
 brew 'zoxide'
 brew 'k9s'
 
-# zsh plugins
-brew 'zsh-history-substring-search'
-brew 'zsh-autosuggestions'
-brew 'zsh-completions'
-brew 'zsh-history-substring-search'
-
 cask 'brave-browser'
 cask 'docker'
 cask 'firefox'
