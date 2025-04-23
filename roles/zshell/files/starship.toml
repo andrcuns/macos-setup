@@ -31,7 +31,7 @@ style = "bright-black"
 symbol = " "
 
 [git_status]
-format = "[ $staged$conflicted$deleted$renamed$modified$typechanged$untracked$ahead_behind$stashed]($style)"
+format = "[$staged$conflicted$deleted$renamed$modified$typechanged$untracked$ahead_behind$stashed]($style)"
 style = "cyan"
 conflicted = '[=$count](red)'
 ahead = '⇡${count}'
