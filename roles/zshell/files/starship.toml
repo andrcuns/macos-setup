@@ -89,3 +89,7 @@ format = '[$symbol$context( \($namespace\))]($style) '
 
 [direnv]
 disabled = false
+allowed_msg = "✓"
+loaded_msg = "✓"
+unloaded_msg = "✘"
+format = '[$symbol]($style)[$loaded]($style)/[$allowed]($style) '
