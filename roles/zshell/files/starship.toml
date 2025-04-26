@@ -97,3 +97,4 @@ format = '[$symbol]($style)[$loaded]($style)/[$allowed]($style) '
 [bun]
 symbol = " "
 format = '[$symbol($version )]($style)'
+style = "cyan"
