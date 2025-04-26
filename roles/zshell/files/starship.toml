@@ -4,7 +4,7 @@
 format = """
 $directory$git_branch$git_status$git_metrics$cmd_duration\
 $fill\
-$ruby$nodejs$terraform$kubernetes$direnv$memory_usage\
+$ruby$nodejs$bun$terraform$kubernetes$direnv$memory_usage\
 $line_break\
 $character"""
 
@@ -93,3 +93,7 @@ allowed_msg = "✓"
 loaded_msg = "✓"
 unloaded_msg = "✘"
 format = '[$symbol]($style)[$loaded]($style)/[$allowed]($style) '
+
+[bun]
+symbol = " "
+format = '[$symbol($version )]($style)'
