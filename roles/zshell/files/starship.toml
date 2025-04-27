@@ -2,7 +2,7 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 format = """
-$directory$git_branch$git_status$git_metrics$cmd_duration\
+$directory$git_branch$git_status$git_state$git_metrics$cmd_duration\
 $fill\
 $ruby$nodejs$bun$terraform$kubernetes$direnv\
 $line_break\
@@ -45,8 +45,8 @@ renamed = "»$count"
 deleted = "[✘$count](red)"
 
 [git_state]
-format = '[$state( $progress_current/$progress_total)]($style) '
-style = "bright-black"
+format = '[ $state( $progress_current/$progress_total)]($style)'
+style = "red"
 
 [git_metrics]
 disabled = false
