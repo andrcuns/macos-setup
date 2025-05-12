@@ -3,18 +3,19 @@
 - hosts: localhost
   roles:
     # Shell
-    - { role: zshell, tags: "zshell" }
+    - { role: zshell, tags: zshell }
     
     # Programming languages
-    - { role: ruby, tags: "ruby" }
-    - { role: node, tags: "node" }
+    - { role: ruby, tags: ruby }
+    - { role: node, tags: node }
 
     # Editors
-    - { role: neovim, tags: "neovim" }
+    - { role: neovim, tags: neovim }
     
     # Dotfiles
-    - { role: stow, tags: "stow" }
+    - { role: dotfiles, tags: dotfiles }
 
     # Misc
-    - { role: gpg, tags: "gpg" }
-    - { role: terraform, tags: "terraform" }
+    - { role: gpg, tags: gpg }
+    - { role: terraform, tags: terraform }
+    - { role: iterm, tags: iterm }

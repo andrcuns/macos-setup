@@ -8,4 +8,4 @@ macos-setup is a small project using Brewfile and ansible to bootstrap fresh mac
 
 ### dotfiles
 
-Dotfiles management by [GNU stow](https://www.gnu.org/software/stow/) is supported. Dotfiles location is saved in [variables config](group_vars/all/all.yml) and it assumes it contains stow.txt file with a list of dotfiles with each file/folder on line. stow role performs stowing, comment it out of [playbook.yml](playbook.yml) to not use this feature.
+Dotfiles management by [chezmoi](https://www.chezmoi.io/) is supported. Dotfiles repository path is set via `DOTFILES_REPO` environment variable. It can also be passed as an argument to `install.sh` script.

@@ -7,6 +7,7 @@ tap 'mongodb/brew'
 
 brew 'ansible'
 brew 'bat'
+brew 'chezmoi'
 brew 'coreutils'
 brew 'diff-so-fancy'
 brew 'direnv'

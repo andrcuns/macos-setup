@@ -1,5 +1,4 @@
 ---
-
 - name: Clone oh-my-zsh
   git:
     repo: "{{ github }}robbyrussell/oh-my-zsh.git"
@@ -27,13 +26,6 @@
   template:
     src: .zshrc.j2
     dest: "{{ user.home }}/.zshrc"
-    backup: true
-  when: not skip_config_tasks
-
-- name: Create .zprofile
-  copy:
-    src: .zprofile
-    dest: "{{ user.home }}/.zprofile"
     backup: true
   when: not skip_config_tasks
 

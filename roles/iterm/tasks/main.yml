@@ -1,0 +1,10 @@
+---
+
+- name: Create .iterm config folder
+  file:
+    path: "{{ user.home }}/.iterm"
+    state: directory
+    mode: '0755'
+
+- name: Configure iTerm2 to use custom preferences folder
+  command: defaults write com.googlecode.iterm2 PrefsCustomFolder "{{ user.home }}/.iterm"
