@@ -1,5 +1,5 @@
-# Fix insecure completion-dependent directories detected on Catalina
-export ZSH_DISABLE_COMPFIX="true"
+# Create zcompdump files outside of the home directory
+export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
 
 # =====================================================================================================================
 # Exports
