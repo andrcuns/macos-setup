@@ -145,7 +145,8 @@ alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 alt-shift-semicolon = 'mode service'
 
 # Global floating terminal window
-ctrl-enter = 'exec-and-forget ~/.config/kitty/terminal.sh'
+ctrl-enter = 'exec-and-forget ~/.config/hammerspoon/terminal.sh'
+
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 [mode.service.binding]
