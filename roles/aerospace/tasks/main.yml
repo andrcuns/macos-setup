@@ -7,16 +7,16 @@
 
 - name: Create hammerspoon configuration directory
   file:
-    path: "{{ user.home }}/.config/hammerspoon"
+    path: "{{ user.home }}/.hammerspoon"
     state: directory
 
 - name: Create terminal startup script
   copy:
     src: terminal.sh
-    dest: "{{ user.home }}/.config/hammerspoon/terminal.sh"
+    dest: "{{ user.home }}/.hammerspoon/terminal.sh"
     mode: '0755'
 
 - name: Create init.lua for hammerspoon
   copy:
     src: init.lua
-    dest: "{{ user.home }}/.config/hammerspoon/init.lua"
+    dest: "{{ user.home }}/.hammerspoon/init.lua"
