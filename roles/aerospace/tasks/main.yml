@@ -1,0 +1,24 @@
+---
+- name: Create aerospace configuration file
+  copy:
+    src: aerospace.toml
+    dest: "{{ user.home }}/.aerospace.toml"
+    backup: true
+
+- name: Add terminal startup script
+  copy:
+    src: terminal.sh
+    dest: "{{ user.home }}/.config/terminal.sh"
+    mode: '0755'
+    backup: true
+
+- name: Create hammerspoon configuration directory
+  file:
+    path: "{{ user.home }}/.config/hammerspoon"
+    state: directory
+
+- name: Create init.lua for hammerspoon
+  copy:
+    src: init.lua
+    dest: "{{ user.home }}/.config/hammerspoon/init.lua"
+    backup: true

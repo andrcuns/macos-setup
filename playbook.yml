@@ -4,6 +4,7 @@
   roles:
     # Shell
     - { role: zshell, tags: zshell }
+    - { role: terminal, tags: terminal }
     
     # Programming languages
     - { role: ruby, tags: ruby }
@@ -11,11 +12,7 @@
 
     # Editors
     - { role: neovim, tags: neovim }
-    
-    # Dotfiles
-    - { role: dotfiles, tags: dotfiles }
 
     # Misc
     - { role: gpg, tags: gpg }
-    - { role: terraform, tags: terraform }
-    - { role: iterm, tags: iterm }
+    - { role: aerospace, tags: aerospace }

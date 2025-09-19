@@ -4,5 +4,4 @@ user:
   home: "{{ lookup('env', 'HOME') }}"
 
 github: "https://github.com/"
-dotfiles_repo: "{{ lookup('env', 'DOTFILES_REPO') }}"
 mise: "/opt/homebrew/bin/mise"

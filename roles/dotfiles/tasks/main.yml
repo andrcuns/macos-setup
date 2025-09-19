@@ -1,7 +1,0 @@
----
-
-- name: Set up dotfiles
-  command: "chezmoi init --apply {{ dotfiles_repo }}"
-  when: dotfiles_repo is defined and dotfiles_repo | length > 0
-  register: chezmoi_init
-  changed_when: chezmoi_init.stdout | length > 0

@@ -1,5 +1,5 @@
 ---
-skip_config_tasks: "{{ lookup('env', 'ANSIBLE_SKIP_CONFIG_REGENERATE') | default(false) | bool }}"
+skip_config_tasks: "{{ lookup('env', 'ANSIBLE_SKIP_CONFIG_REGENERATE') or 'false' | bool }}"
 
 omzsh_dir: "{{ user.home }}/.oh-my-zsh"
 omzsh_plugins_dir: "{{ omzsh_dir }}/custom/plugins"

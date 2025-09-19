@@ -1,0 +1,11 @@
+---
+- name: Create kitty configuration directory
+  file:
+    path: "{{ user.home }}/.config/kitty"
+    state: directory
+
+- name: Create kitty.conf
+  copy:
+    src: kitty.conf
+    dest: "{{ user.home }}/.config/kitty/kitty.conf"
+    backup: true
