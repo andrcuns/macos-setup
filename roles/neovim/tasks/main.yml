@@ -1,22 +1,21 @@
 ---
 
-- name: Clone nvchad
+- name: Clone lazyvim starter template
   git:
-    repo: "{{ github }}NvChad/starter.git"
-    dest: "{{ nvchad_dir }}"
+    repo: "{{ github }}LazyVim/starter.git"
+    dest: "{{ nvim_config }}"
     accept_hostkey: yes
     force: yes
 
-- name: Add chadrc.lua
-  template:
-    src: chadrc.lua.j2
-    dest: "{{ nvchad_dir }}/lua/chadrc.lua"
+- name: Add tomorrow theme plugin
+  copy:
+    src: theme.lua
+    dest: "{{ nvim_config }}/lua/plugins/theme.lua"
 
 - name: Add colorcolumn option
   lineinfile:
-    path: "{{ nvchad_dir }}/init.lua"
+    path: "{{ nvim_config }}/init.lua"
     line: vim.opt.colorcolumn = "120"
     state: present
 
-# :MasonInstallAll should be run after the nvchad installation and all the plugin installations
-# Run 'Lazy sync' to update plugins
+# It is recommended to run :LazyHealth after installation. This will load all plugins and check if everything is working correctly.
