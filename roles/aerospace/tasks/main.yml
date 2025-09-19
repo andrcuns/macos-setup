@@ -3,7 +3,6 @@
   copy:
     src: aerospace.toml
     dest: "{{ user.home }}/.aerospace.toml"
-    backup: true
 
 - name: Create hammerspoon configuration directory
   file:
@@ -15,10 +14,8 @@
     src: terminal.sh
     dest: "{{ user.home }}/.config/hammerspoon/terminal.sh"
     mode: '0755'
-    backup: true
 
 - name: Create init.lua for hammerspoon
   copy:
     src: init.lua
     dest: "{{ user.home }}/.config/hammerspoon/init.lua"
-    backup: true
