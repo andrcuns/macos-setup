@@ -37,4 +37,3 @@ fi
 
 aerospace focus --window-id "$WIN_ID"
 place_terminal "$WIN_ID"
-
