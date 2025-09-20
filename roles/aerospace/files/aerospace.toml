@@ -156,7 +156,7 @@ alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 alt-shift-semicolon = 'mode service'
 
 # Global floating terminal window
-ctrl-enter = 'exec-and-forget ~/.config/hammerspoon/terminal.sh'
+ctrl-enter = 'exec-and-forget ~/.hammerspoon/terminal.sh'
 
 # Monitor management
 [workspace-to-monitor-force-assignment]
