@@ -31,3 +31,11 @@ if [ -n "$dotfiles_repo" ]; then
   chezmoi init "$dotfiles_repo" --apply ${dotfiles_branch:+--branch "$dotfiles_branch"}
   success "done!"
 fi
+
+log "Enable AeroSpace"
+aerospace enable on
+success "done!"
+
+log "Enable Hammerspoon"
+hs -c 'hs.openPreferences()'
+success "done!"
