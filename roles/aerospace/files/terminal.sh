@@ -13,7 +13,7 @@ WIN_FILTER=".[] | select(.\"app-name\"==\"$APP\" and .\"window-title\"==\"$TITLE
 WIN=$(aerospace list-windows --all --json | jq -r "$WIN_FILTER" || true)
 
 if [ -z "$WIN" ]; then
-  kitty --title="$TITLE" -d $HOME &
+  kitty --title="$TITLE" -d $HOME --single-instance &
 
   while [ -z "$WIN_ID" ]; do
     WIN_ID="$(aerospace list-windows --all --json | jq -r "$WIN_FILTER | .\"window-id\"")"
