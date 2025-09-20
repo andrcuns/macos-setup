@@ -1,7 +1,0 @@
----
-
-- name: Create .gnupg
-  file:
-    mode: "0700"
-    path: "{{ user.home }}/.gnupg"
-    state: directory

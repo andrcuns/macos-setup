@@ -13,6 +13,5 @@
     # Editors
     - { role: neovim, tags: neovim }
 
-    # Misc
-    - { role: gpg, tags: gpg }
+    # Window management
     - { role: aerospace, tags: aerospace }
