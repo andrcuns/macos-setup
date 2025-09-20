@@ -37,9 +37,9 @@ symbol = " "
 format = "[( $staged$conflicted$deleted$renamed$modified$typechanged$untracked)( $stashed)( $ahead_behind)]($style)"
 style = "cyan"
 conflicted = '[=$count](red)'
-ahead = '[⇡$count](cyan)'
-diverged = '[⇡$ahead_count⇣$behind_count](cyan)'
-behind = '[⇣$count](cyan)'
+ahead = '[↑$count](cyan)'
+diverged = '[↑$ahead_count↓$behind_count](cyan)'
+behind = '[↓$count](cyan)'
 untracked = '[?$count](purple)'
 stashed = "[*$count](blue)"
 modified = '[!$count](yellow)'
