@@ -8,3 +8,4 @@
   copy:
     src: kitty.conf
     dest: "{{ user.home }}/.config/kitty/kitty.conf"
+    backup: yes
