@@ -158,6 +158,9 @@ alt-shift-semicolon = 'mode service'
 # Global floating terminal window
 ctrl-enter = 'exec-and-forget ~/.hammerspoon/terminal.sh'
 
+# Close current window
+alt-w = 'close --quit-if-last-window'
+
 # Monitor management
 [workspace-to-monitor-force-assignment]
 1 = 'main'
