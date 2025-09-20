@@ -3,6 +3,7 @@
   copy:
     src: aerospace.toml
     dest: "{{ user.home }}/.aerospace.toml"
+    backup: yes
 
 - name: Create hammerspoon configuration directory
   file:
