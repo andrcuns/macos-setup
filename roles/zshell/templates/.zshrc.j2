@@ -38,7 +38,7 @@ ZSH_THEME=""
 plugins=(brew sudo pass)
 
 # TERMINAL
-plugins+=(zsh-syntax-highlighting zsh-autosuggestions zsh-completions)
+plugins+=(zsh-syntax-highlighting zsh-autosuggestions zsh-completions zsh-fzf-history-search)
 
 # VM
 plugins+=(docker kubectl)
@@ -49,23 +49,14 @@ plugins+=(git npm yarn gem mise)
 # Cloud
 plugins+=(gcloud aws)
 
+# Autosuggestions
+ZSH_AUTOSUGGEST_CLEAR_WIDGETS=("${(@)ZSH_AUTOSUGGEST_CLEAR_WIDGETS:#(up|down)-line-or-history}")
+
 # =====================================================================================================================
 # Sourcing
 # =====================================================================================================================
 # Oh-my-zsh
 source $ZSH/oh-my-zsh.sh
-source $ZSH/custom/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
-
-# =====================================================================================================================
-# Plugin bindings
-# =====================================================================================================================
-# History substring search plugin binding
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
-
-# Autosuggestions + Substring search config
-ZSH_AUTOSUGGEST_CLEAR_WIDGETS=("${(@)ZSH_AUTOSUGGEST_CLEAR_WIDGETS:#(up|down)-line-or-history}")
-ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(history-substring-search-up history-substring-search-down)
 
 # =====================================================================================================================
 # Additional aliases
