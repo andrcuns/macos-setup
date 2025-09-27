@@ -8,5 +8,6 @@ omzsh_plugins: {
   zsh-syntax-highlighting: zsh-users,
   zsh-autosuggestions: zsh-users,
   zsh-completions: zsh-users,
-  zsh-fzf-history-search: joshskidmore
+  zsh-fzf-history-search: joshskidmore,
+  zsh-history-substring-search: zsh-users
 }
