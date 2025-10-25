@@ -5,7 +5,7 @@ scan_timeout = 100
 command_timeout = 800
 
 format = """
-$directory$git_branch$git_status$git_state$git_metrics$cmd_duration\
+$hostname$directory$git_branch$git_status$git_state$git_metrics$cmd_duration\
 $fill\
 $ruby$nodejs$bun$terraform$kubernetes$direnv\
 $line_break\
