@@ -32,10 +32,14 @@ if [ -n "$dotfiles_repo" ]; then
   success "done!"
 fi
 
-log "Enable AeroSpace"
-aerospace enable on
-success "done!"
-
-log "Enable Hammerspoon"
+log "Enabling Hammerspoon"
+echo "Opening preferences window, please allow Accessibility access for Hammerspoon in System Preferences when prompted..."
 hs -c 'hs.openPreferences()'
 success "done!"
+
+log "Enabling AeroSpace"
+if ! aerospace enable on; then
+  echo "Please open AeroSpace via Spotlight and allow Accessibility access in System Preferences!"
+fi
+
+success "setup finished!"
