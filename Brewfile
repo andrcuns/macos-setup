@@ -1,5 +1,4 @@
 tap 'buo/cask-upgrade'
-tap 'mongodb/brew'
 tap 'nikitabobko/tap'
 
 brew 'ansible'
@@ -27,6 +26,7 @@ brew 'mise'
 brew 'mkcert'
 brew 'ncdu'
 brew 'neovim'
+brew 'opencode'
 brew 'pass'
 brew 'pinentry-mac'
 brew 'ripgrep'
