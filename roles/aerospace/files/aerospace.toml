@@ -195,5 +195,5 @@ alt-shift-l = ['join-with right', 'mode main']
 # Pop up terminal
 [[on-window-detected]]
 if.app-name-regex-substring = "kitty"
-if.window-title-regex-substring = "terminal"
+if.window-title-regex-substring = "floating-terminal"
 run = "layout floating"
