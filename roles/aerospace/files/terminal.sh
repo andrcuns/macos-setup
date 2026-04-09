@@ -2,40 +2,45 @@
 
 set -e
 
-MONITOR=$(aerospace list-monitors --focused --json | jq -r '.[0]."monitor-name"')
-
-function place_terminal() {
-  hs -c "placeTerminal($1, '$MONITOR')"
-}
-
 APP="kitty"
 TITLE="floating-terminal"
+WIN_FILTER='.[] | select(."app-name"=="'"$APP"'" and ."window-title"=="'"$TITLE"'")'
 
-WIN_FILTER=".[] | select(.\"app-name\"==\"$APP\" and .\"window-title\"==\"$TITLE\")"
-WIN=$(aerospace list-windows --all --json | jq -r "$WIN_FILTER" || true)
+TMPDIR=$(mktemp -d)
+trap 'rm -rf "$TMPDIR"' EXIT
 
-if [ -z "$WIN" ]; then
-  kitty --title="$TITLE" -d $HOME --single-instance &
+aerospace list-monitors --focused --json > "$TMPDIR/monitor" &
+aerospace list-windows --all --json > "$TMPDIR/allwin" &
+aerospace list-windows --focused --json > "$TMPDIR/focused" &
+wait
+
+MONITOR=$(jq -r '.[0]."monitor-name"' "$TMPDIR/monitor")
+WIN_ID=$(jq -r "$WIN_FILTER | .\"window-id\"" "$TMPDIR/allwin")
+FOCUSED_ID=$(jq -r '.[0]."window-id"' "$TMPDIR/focused")
+
+if [ -z "$WIN_ID" ]; then
+  kitty --title="$TITLE" -d "$HOME" --single-instance &
 
   while [ -z "$WIN_ID" ]; do
-    WIN_ID="$(aerospace list-windows --all --json | jq -r "$WIN_FILTER | .\"window-id\"")"
-    sleep 0.2
+    WIN_ID=$(aerospace list-windows --all --json | jq -r "$WIN_FILTER | .\"window-id\"")
+    sleep 0.1
   done
-  
-  place_terminal "$WIN_ID"
+
+  hs -c "placeTerminal($WIN_ID, '$MONITOR')"
   exit 0
 fi
 
-WIN_ID=$(echo "$WIN" | jq -r '."window-id"')
-FOCUSED=$(aerospace list-windows --json --focused | jq -r '.[] | ."window-id"')
-
-if [ "$FOCUSED" = "$WIN_ID" ]; then
+if [ "$FOCUSED_ID" = "$WIN_ID" ]; then
   aerospace move-node-to-workspace Z --window-id "$WIN_ID"
   exit 0
-elif [ -z "$(aerospace list-windows --json --workspace focused | jq -r "$WIN_FILTER | .\"window-id\"")" ]; then
+fi
+
+ON_FOCUSED=$(aerospace list-windows --workspace focused --json | jq -r "$WIN_FILTER | .\"window-id\"")
+
+if [ -z "$ON_FOCUSED" ]; then
   WORKSPACE=$(aerospace list-workspaces --focused)
   aerospace move-node-to-workspace "$WORKSPACE" --window-id "$WIN_ID"
 fi
 
 aerospace focus --window-id "$WIN_ID"
-place_terminal "$WIN_ID"
+hs -c "placeTerminal($WIN_ID, '$MONITOR')"
