@@ -1,18 +1,26 @@
 hs.ipc = require("hs.ipc")
 
-function placeTerminal(id)
+function placeTerminal(id, monitorName)
     local win = hs.window.get(id)
     if not win then
         hs.alert.show("Window with id " .. tostring(id) .. " not found")
         return
     end
 
-    local screen = win:screen():frame()
+    local targetScreen = hs.screen.find(monitorName)
+    if not targetScreen then
+        targetScreen = win:screen()
+    end
 
-    -- Desired proportions
+    if win:screen():id() ~= targetScreen:id() then
+        win:moveToScreen(targetScreen, false, false, 0)
+    end
+
+    local screen = targetScreen:frame()
+
     local ww = math.floor(screen.w * 0.99)
     local wh = math.floor(screen.h * 0.70)
-    local x  = math.floor(screen.x + (screen.w - ww) / 2) -- center horizontally
+    local x  = math.floor(screen.x + (screen.w - ww) / 2)
     local y  = math.floor(screen.y + (screen.h * 0.009))
 
     win:setFrame({x = x, y = y, w = ww, h = wh})

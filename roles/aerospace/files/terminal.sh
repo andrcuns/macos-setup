@@ -2,8 +2,10 @@
 
 set -e
 
+MONITOR=$(aerospace list-monitors --focused --json | jq -r '.[0]."monitor-name"')
+
 function place_terminal() {
-  hs -c "placeTerminal($1)"
+  hs -c "placeTerminal($1, '$MONITOR')"
 }
 
 APP="kitty"
