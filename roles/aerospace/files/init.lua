@@ -7,7 +7,8 @@ function placeTerminal(id, monitorName)
         return
     end
 
-    local targetScreen = hs.screen.find(monitorName)
+    local escapedName = monitorName:gsub("([%(%)%.%%%+%-%*%?%[%^%$])", "%%%1")
+    local targetScreen = hs.screen.find(escapedName)
     if not targetScreen then
         targetScreen = win:screen()
     end
