@@ -29,6 +29,20 @@
     backup: true
   when: not skip_config_tasks
 
+- name: Create update.zsh script
+  template:
+    src: update.zsh.j2
+    dest: "{{ omzsh_custom_dir }}/update.zsh"
+    backup: true
+  when: not skip_config_tasks
+
+- name: Create utils.zsh script
+  copy:
+    src: utils.zsh
+    dest: "{{ omzsh_custom_dir }}/utils.zsh"
+    backup: true
+  when: not skip_config_tasks
+
 - name: Create starship.toml
   copy:
     src: starship.toml

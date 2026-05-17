@@ -1,0 +1,91 @@
+function update() {
+  run-ansible-playbook() {
+    (cd $SETUP_PROJECT_PATH && ANSIBLE_SKIP_CONFIG_REGENERATE=true ansible-playbook playbook.yml --tags $1)
+  }
+
+  sync-dotfile-changes() {
+    local cz_path="$(chezmoi source-path)"
+
+    # optional hooks to run before change sync
+    run-dotfiles-update-hooks || true
+
+    chezmoi re-add
+    local git_status=$(git -C $cz_path status -s)
+
+    if [[ "$git_status" == "" ]]; then
+      echo "No changes to commit!"
+    else
+      echo
+      git -C "$cz_path" --no-pager diff
+
+      echo
+      printf "Commit these changes? [Y/n]: "
+      read confirm
+      if [[ ! $confirm =~ ^[Nn]$ ]]; then
+        git -C "$cz_path" commit -am "Update dotfiles"
+        echo "✅ Changes committed."
+
+        printf "Push to remote? [y/N]: "
+        read push_confirm
+        if [[ $push_confirm =~ ^[Yy]$ ]]; then
+          git -C "$cz_path" push
+          echo "🚀 Changes pushed."
+        else
+          echo "📦 Push skipped."
+        fi
+      else
+        echo "❌ Commit canceled."
+      fi
+    fi
+  }
+
+  update-npm-packages() {
+    o=$(npm outdated -g --parseable --depth=0)
+    if [ -z "$o" ]; then
+      echo "✓ All global npm packages are up to date."
+    else
+      echo "Updating the following global packages:"
+      npm outdated -g # pretty table view
+      echo "$o" | cut -d: -f4 | sed 's/@[^@]*$/@latest/' | xargs npm install -g
+    fi
+  }
+
+  # Clean up helper functions when update() returns
+  trap 'unfunction log run-ansible-playbook sync-dotfile-changes update-npm-packages 2>/dev/null' EXIT
+
+  local original_dir=$(pwd)
+  log "*** Move to home directory ***"
+  cd $HOME
+
+  echo ""
+  log "***Update homebrew software and run cleanup***"
+  brew upgrade
+  brew cleanup --prune=all
+
+  echo
+  log "***Update global mise tools***"
+  mise up --bump --cd {{ mise_config_dir }}
+
+  echo
+  log "***Update rubygems***"
+  gem update --system
+
+  echo
+  log "***Update global npm packages***"
+  update-npm-packages
+
+  echo
+  log "***Update gcloud components***"
+  gcloud components update --quiet
+
+  echo
+  log "***Update omzsh and plugins***"
+  run-ansible-playbook "zshell"
+
+  log "***Syncing dotfiles***"
+  sync-dotfile-changes
+
+  echo ""
+  success "Update complete!"
+  cd "$original_dir"
+}

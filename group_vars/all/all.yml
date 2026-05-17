@@ -5,3 +5,4 @@ user:
 
 github: "https://github.com/"
 mise: "/opt/homebrew/bin/mise"
+mise_config_dir: "{{ user.home }}/.config/mise"
