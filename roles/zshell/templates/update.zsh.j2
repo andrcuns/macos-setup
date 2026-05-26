@@ -51,38 +51,38 @@ function update() {
   }
 
   # Clean up helper functions when update() returns
-  trap 'unfunction log run-ansible-playbook sync-dotfile-changes update-npm-packages 2>/dev/null' EXIT
+  trap 'unfunction run-ansible-playbook sync-dotfile-changes update-npm-packages 2>/dev/null' EXIT
 
   local original_dir=$(pwd)
-  log "*** Move to home directory ***"
+  log-info "*** Move to home directory ***"
   cd $HOME
 
   echo ""
-  log "***Update homebrew software and run cleanup***"
+  log-info "***Update homebrew software and run cleanup***"
   brew upgrade
   brew cleanup --prune=all
 
   echo
-  log "***Update global mise tools***"
+  log-info "***Update global mise tools***"
   mise up --bump --cd {{ mise_config_dir }}
 
   echo
-  log "***Update rubygems***"
+  log-info "***Update rubygems***"
   gem update --system
 
   echo
-  log "***Update global npm packages***"
+  log-info "***Update global npm packages***"
   update-npm-packages
 
   echo
-  log "***Update gcloud components***"
+  log-info "***Update gcloud components***"
   gcloud components update --quiet
 
   echo
-  log "***Update omzsh and plugins***"
+  log-info "***Update omzsh and plugins***"
   run-ansible-playbook "zshell"
 
-  log "***Syncing dotfiles***"
+  log-info "***Syncing dotfiles***"
   sync-dotfile-changes
 
   echo ""

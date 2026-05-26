@@ -11,18 +11,15 @@ export GPG_TTY=$(tty)
 # Preferred editor
 export EDITOR='nvim'
 
-# Set custom PATH
-export PATH=$PATH:$HOME/bin
-
 # Ruby
 export BUNDLE_SUPPRESS_INSTALL_USING_MESSAGES=true
 export BUNDLE_AUTO_INSTALL=true
 
-# Docker
-export COMPOSE_DOCKER_CLI_BUILD=1
-
 # Setup project path
 export SETUP_PROJECT_PATH={{ playbook_dir }}
+
+# Misc
+export SMALL_MODEL='claude-haiku-4.5'
 
 # =====================================================================================================================
 # Oh my zsh settings
@@ -92,6 +89,10 @@ alias gclist='gcloud config configurations list'
 alias gcstart='gcloud compute instances start'
 alias gcstop='gcloud compute instances stop'
 
+# llm
+alias q='ai-jail --exec --no-browser $(mise bin-paths pi)/pi --model $SMALL_MODEL:minimal -p'
+alias oc='opencode'
+
 # misc
 alias cat='bat'
 alias help='tldr'
@@ -116,6 +117,9 @@ alias chcd='chezmoi cd'
 # =====================================================================================================================
 # Activate mise
 eval "$(mise activate zsh)"
+
+# Set custom PATH
+export PATH=$HOME/bin:$PATH
 
 # Zoxide integration
 eval "$(zoxide init --cmd cd zsh)"

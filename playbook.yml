@@ -6,9 +6,11 @@
     - { role: zshell, tags: zshell }
     - { role: terminal, tags: terminal }
     
-    # Programming languages
-    - { role: ruby, tags: ruby }
-    - { role: node, tags: node }
+    # Tools
+    - { role: mise, tags: mise }
+
+    # LLM
+    - { role: llm, tags: llm }
 
     # Editors
     - { role: neovim, tags: neovim }

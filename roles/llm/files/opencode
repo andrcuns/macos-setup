@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Shims overriding the default binary to run opencode through ai-jail
+
+ai-jail \
+  --rw-map=$HOME/.config/opencode \
+  --map=$HOME/.gitignore_global \
+  --mask=.envrc \
+  --hide-dotdir=.password-store \
+  --status-bar=dark \
+  --no-save-config \
+  $(mise bin-paths opencode)/opencode "$@"

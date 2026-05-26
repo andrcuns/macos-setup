@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Shims overriding the default binary to run pi through ai-jail
+
+ai-jail \
+  --rw-map=$HOME/.pi \
+  --rw-map=$HOME/.pi-lens \
+  --map=$HOME/.gitignore_global \
+  --mask=.envrc \
+  --hide-dotdir=.password-store \
+  --status-bar=dark \
+  --no-save-config \
+  $(mise bin-paths pi)/pi "$@"
