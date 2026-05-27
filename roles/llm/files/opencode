@@ -4,9 +4,11 @@
 
 ai-jail \
   --rw-map=$HOME/.config/opencode \
+  --rw-map=$HOME/.cache \
   --map=$HOME/.gitignore_global \
   --mask=.envrc \
   --hide-dotdir=.password-store \
   --status-bar=dark \
   --no-save-config \
+  --ssh \
   $(mise bin-paths opencode)/opencode "$@"
