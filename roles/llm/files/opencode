@@ -6,7 +6,7 @@ ai-jail \
   --rw-map=$HOME/.config/opencode \
   --map=$HOME/.gitignore_global \
   --mask=.envrc \
-  --status-bar=dark \
+  --no-status-bar \
   --no-save-config \
   --ssh \
   --gpu \
