@@ -38,6 +38,7 @@ brew 'zoxide'
 brew 'k9s'
 
 cask 'aerospace'
+cask 'bitwarden'
 cask 'brave-browser'
 cask 'docker-desktop'
 cask 'firefox'

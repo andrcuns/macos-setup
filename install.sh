@@ -19,7 +19,8 @@ log "Installing Homebrew..."
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" && eval "$(/opt/homebrew/bin/brew shellenv)"
 success "done!"
 
-log "Add taps"
+log "Trusting taps"
+brew trust buo/cask-upgrade
 brew trust nikitabobko/tap
 brew trust akitaonrails/tap
 
