@@ -1,4 +1,10 @@
 ---
+- name: Ensure mise config directory exists
+  file:
+    path: "{{ mise_config_dir }}"
+    state: directory
+    mode: "0755"
+
 - name: Add global mise config
   template:
     src: config.toml.j2
