@@ -50,6 +50,10 @@ function update() {
     fi
   }
 
+  update-pi-extensions() {
+    mise exec -- pi update --extensions
+  }
+
   # Clean up helper functions when update() returns
   trap 'unfunction run-ansible-playbook sync-dotfile-changes update-npm-packages 2>/dev/null' EXIT
 
@@ -63,8 +67,9 @@ function update() {
   brew cleanup --prune=all
 
   echo
-  log-info "***Update global mise tools***"
+  log-info "***Update global mise tools and run cleanup***"
   mise up --bump --cd {{ mise_config_dir }}
+  mise prune --cd {{ mise_config_dir }} --yes
 
   echo
   log-info "***Update rubygems***"
@@ -75,8 +80,8 @@ function update() {
   update-npm-packages
 
   echo
-  log-info "***Update gcloud components***"
-  gcloud components update --quiet
+  log-info "***Update pi extensions***"
+  update-pi-extensions
 
   echo
   log-info "***Update omzsh and plugins***"

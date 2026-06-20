@@ -10,6 +10,7 @@ export GPG_TTY=$(tty)
 
 # Preferred editor
 export EDITOR='nvim'
+export SUDO_EDITOR="$EDITOR"
 
 # Ruby
 export BUNDLE_SUPPRESS_INSTALL_USING_MESSAGES=true
@@ -19,7 +20,7 @@ export BUNDLE_AUTO_INSTALL=true
 export SETUP_PROJECT_PATH={{ playbook_dir }}
 
 # Misc
-export SMALL_MODEL='claude-haiku-4.5'
+export BAT_THEME=ansi
 
 # =====================================================================================================================
 # Oh my zsh settings
@@ -31,8 +32,8 @@ ZSH_THEME=""
 # =====================================================================================================================
 # Plugins
 # =====================================================================================================================
-# OSX
-plugins=(brew sudo pass)
+# OS
+plugins=(sudo pass)
 
 # TERMINAL
 plugins+=(zsh-syntax-highlighting zsh-autosuggestions zsh-completions zsh-fzf-history-search)
@@ -41,7 +42,7 @@ plugins+=(zsh-syntax-highlighting zsh-autosuggestions zsh-completions zsh-fzf-hi
 plugins+=(docker kubectl)
 
 # DEV
-plugins+=(git npm yarn gem mise bun)
+plugins+=(git npm gem mise)
 
 # Cloud
 plugins+=(gcloud aws)
@@ -67,9 +68,11 @@ ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(history-substring-search-up history-substring-se
 # =====================================================================================================================
 # Additional aliases
 # =====================================================================================================================
-# nvim
+# editors
 alias vim='nvim'
 alias v='nvim'
+alias z='zed'
+alias ze='zed -e'
 
 # git
 alias gbd='git push origin --delete $(git_current_branch)'
@@ -96,14 +99,14 @@ alias oc='opencode'
 # misc
 alias cat='bat'
 alias help='tldr'
-alias q='exit'
-alias fsize='ncdu --color dark -x --exclude .git --exclude node_modules'
-alias grep='ggrep'
-alias zshrc='vim $HOME/.zshrc'
-alias oc='opencode'
 alias m='mise'
+alias copy='pbcopy'
+alias fsize='ncdu --color dark -x --exclude .git --exclude node_modules'
+alias zshrc='vim $HOME/.zshrc'
 alias ll='eza --long --icons --group-directories-first'
 alias la='eza --long --all --icons --group-directories-first --icons'
+alias ff="fzf --preview 'bat --style=numbers --color=always {}'"
+alias grep='ggrep'
 
 # dotfiles
 alias ch='chezmoi'
@@ -115,11 +118,9 @@ alias chcd='chezmoi cd'
 # =====================================================================================================================
 # Custom integrations
 # =====================================================================================================================
-# Activate mise
+# Activate mise and setup PATH for installed tools
 eval "$(mise activate zsh)"
-
-# Set custom PATH
-export PATH=$HOME/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
 
 # Zoxide integration
 eval "$(zoxide init --cmd cd zsh)"
