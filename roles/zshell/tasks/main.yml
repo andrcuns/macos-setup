@@ -19,8 +19,7 @@
     repo: "{{ github }}{{ item.value }}/{{ item.key }}.git"
     dest: "{{ omzsh_plugins_dir }}/{{ item.key }}"
     accept_hostkey: yes
-  with_dict:
-    "{{ omzsh_plugins }}"
+  with_dict: "{{ omzsh_plugins }}"
 
 - name: Create .zshrc
   template:
@@ -42,6 +41,12 @@
     dest: "{{ omzsh_custom_dir }}/utils.zsh"
     backup: true
   when: not skip_config_tasks
+
+- name: Ensure .config directory exists
+  file:
+    path: "{{ user.home }}/.config"
+    state: directory
+    mode: "0755"
 
 - name: Create starship.toml
   copy:
