@@ -1,6 +1,8 @@
 tap 'buo/cask-upgrade'
 tap 'nikitabobko/tap'
+tap 'akitaonrails/tap'
 
+brew 'ai-jail'
 brew 'ansible'
 brew 'bat'
 brew 'btop'
