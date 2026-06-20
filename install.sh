@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 function log() {
   echo -e "\033[1;35m$1\033[0m"
 }
@@ -16,6 +18,10 @@ fi
 log "Installing Homebrew..."
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" && eval "$(/opt/homebrew/bin/brew shellenv)"
 success "done!"
+
+log "Add taps"
+brew trust nikitabobko/tap
+brew trust akitaonrails/tap
 
 log "Installing dependencies from Brewfile..."
 brew bundle
