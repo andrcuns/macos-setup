@@ -5,11 +5,12 @@
 ai-jail \
   --rw-map=$HOME/.pi \
   --rw-map=$HOME/.pi-lens \
-  --rw-map=$HOME/.cache \
   --map=$HOME/.gitignore_global \
   --mask=.envrc \
-  --hide-dotdir=.password-store \
   --status-bar=dark \
   --no-save-config \
   --ssh \
+  --gpu \
+  --docker \
+  --display \
   $(mise bin-paths pi)/pi "$@"
