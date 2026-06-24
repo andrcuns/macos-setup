@@ -19,10 +19,11 @@ function placeTerminal(id, monitorName)
 
     local screen = targetScreen:frame()
 
-    local ww = math.floor(screen.w * 0.99)
+    local padding = 5
+    local ww = math.floor(screen.w - (padding * 2))
     local wh = math.floor(screen.h * 0.70)
-    local x  = math.floor(screen.x + (screen.w - ww) / 2)
-    local y  = math.floor(screen.y + (screen.h * 0.009))
+    local x  = math.floor(screen.x + padding)
+    local y  = math.floor(screen.y + padding)
 
     win:setFrame({x = x, y = y, w = ww, h = wh})
     win:focus()
