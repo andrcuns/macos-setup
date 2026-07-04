@@ -1,4 +1,3 @@
-tap 'buo/cask-upgrade'
 tap 'nikitabobko/tap'
 tap 'akitaonrails/tap'
 
