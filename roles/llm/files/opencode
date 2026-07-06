@@ -4,6 +4,7 @@
 
 ai-jail \
   --rw-map=$HOME/.config/opencode \
+  --rw-map=$HOME/.worktrees \
   --map=$HOME/.gitignore_global \
   --mask=.envrc \
   --no-status-bar \

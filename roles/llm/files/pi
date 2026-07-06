@@ -5,6 +5,7 @@
 ai-jail \
   --rw-map=$HOME/.pi \
   --rw-map=$HOME/.pi-lens \
+  --rw-map=$HOME/.worktrees \
   --map=$HOME/.gitignore_global \
   --mask=.envrc \
   --no-status-bar \
