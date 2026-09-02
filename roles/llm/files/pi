@@ -1,17 +1,30 @@
 #!/bin/bash
 
 # Shims overriding the default binary to run pi through ai-jail
+# Custom folder overrides for various tools to work
+#   * writeable /tmp for pi context-mode
+#   * mise related paths for correct mise installed tools invocation
+#   * readable global git files for gh cli
 
 ai-jail \
+  --rw-map=/tmp \
+  --rw-map=$HOME/.cache \
   --rw-map=$HOME/.pi \
-  --rw-map=$HOME/.pi-lens \
-  --rw-map=$HOME/.worktrees \
+  --rw-map=$HOME/Library/Caches/mise \
+  --map=$HOME/.local/state/mise \
+  --map=$HOME/.local/share/mise \
+  --map=$HOME/.config \
   --map=$HOME/.gitignore_global \
+  --map=$HOME/.gitconfig \
   --mask=.envrc \
   --no-status-bar \
   --no-save-config \
+  --inherit-env \
+  --worktree \
   --ssh \
   --gpu \
-  --docker \
+  --no-docker \
   --display \
+  --network \
+  --terminal-passthrough \
   $(mise bin-paths pi)/pi "$@"
