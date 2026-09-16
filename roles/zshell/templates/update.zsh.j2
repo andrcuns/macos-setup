@@ -50,10 +50,6 @@ function update() {
     fi
   }
 
-  update-pi-extensions() {
-    mise exec -- pi update --extensions
-  }
-
   # Clean up helper functions when update() returns
   trap 'unfunction run-ansible-playbook sync-dotfile-changes update-npm-packages 2>/dev/null' EXIT
 
@@ -80,8 +76,8 @@ function update() {
   update-npm-packages
 
   echo
-  log-info "***Update pi extensions***"
-  update-pi-extensions
+  log-info "***Update agent skills***"
+  sbx skills update
 
   echo
   log-info "***Update omzsh and plugins***"

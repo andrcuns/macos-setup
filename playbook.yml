@@ -5,12 +5,9 @@
     # Shell
     - { role: zshell, tags: zshell }
     - { role: terminal, tags: terminal }
-    
+
     # Tools
     - { role: mise, tags: mise }
-
-    # LLM
-    - { role: llm, tags: llm }
 
     # Editors
     - { role: neovim, tags: neovim }

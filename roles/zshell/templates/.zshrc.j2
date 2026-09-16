@@ -92,10 +92,6 @@ alias gclist='gcloud config configurations list'
 alias gcstart='gcloud compute instances start'
 alias gcstop='gcloud compute instances stop'
 
-# llm
-alias q='ai-jail --exec --no-browser $(mise bin-paths pi)/pi --model $SMALL_MODEL:minimal -p'
-alias oc='opencode'
-
 # misc
 alias cat='bat'
 alias help='tldr'
@@ -126,7 +122,6 @@ alias gstacks='gh stack submit'
 # =====================================================================================================================
 # Activate mise and setup PATH for installed tools
 eval "$(mise activate zsh)"
-export PATH=$HOME/.local/bin:$PATH
 
 # Zoxide integration
 eval "$(zoxide init --cmd cd zsh)"

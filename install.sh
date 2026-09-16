@@ -22,7 +22,7 @@ success "done!"
 log "Trusting taps"
 brew trust buo/cask-upgrade
 brew trust nikitabobko/tap
-brew trust akitaonrails/tap
+brew trust docker/tap
 
 log "Installing dependencies from Brewfile..."
 brew bundle

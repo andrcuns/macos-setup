@@ -1,7 +1,6 @@
 tap 'nikitabobko/tap'
-tap 'akitaonrails/tap'
+tap 'docker/tap'
 
-brew 'ai-jail'
 brew 'ansible'
 brew 'bat'
 brew 'btop'
@@ -48,3 +47,4 @@ cask 'hiddenbar'
 cask 'kitty'
 cask 'spotify'
 cask 'zed'
+cask 'sbx'
