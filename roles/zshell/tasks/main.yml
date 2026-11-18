@@ -28,6 +28,13 @@
     backup: true
   when: not skip_config_tasks
 
+- name: Create .zprofile
+  copy:
+    src: .zprofile
+    dest: "{{ user.home }}/.zprofile"
+    backup: true
+  when: not skip_config_tasks
+
 - name: Create update.zsh script
   template:
     src: update.zsh.j2
