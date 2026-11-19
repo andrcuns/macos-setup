@@ -1,22 +1,14 @@
 #!/usr/bin/env bash
 
-set -e
+set -eo pipefail
 
 APP="kitty"
 TITLE="floating-terminal"
 WIN_FILTER='.[] | select(."app-name"=="'"$APP"'" and ."window-title"=="'"$TITLE"'")'
 
-TMPDIR=$(mktemp -d)
-trap 'rm -rf "$TMPDIR"' EXIT
-
-aerospace list-monitors --focused --json > "$TMPDIR/monitor" &
-aerospace list-windows --all --json > "$TMPDIR/allwin" &
-aerospace list-windows --focused --json > "$TMPDIR/focused" &
-wait
-
-MONITOR=$(jq -r '.[0]."monitor-name"' "$TMPDIR/monitor")
-WIN_ID=$(jq -r "$WIN_FILTER | .\"window-id\"" "$TMPDIR/allwin")
-FOCUSED_ID=$(jq -r '.[0]."window-id"' "$TMPDIR/focused")
+MONITOR=$(aerospace list-monitors --focused --json | jq -r '.[0]."monitor-name"')
+WIN_ID=$(aerospace list-windows --all --json | jq -r "$WIN_FILTER | .\"window-id\"")
+FOCUSED_ID=$(aerospace list-windows --focused --json | jq -r '.[0]."window-id"')
 
 if [ -z "$WIN_ID" ]; then
   kitty --title="$TITLE" -d "$HOME" --single-instance &
